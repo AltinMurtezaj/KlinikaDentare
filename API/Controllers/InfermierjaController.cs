@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using MediatR;
 using Application.Nurse;
+using System.Threading;
 
 namespace API.Controllers
 {

@@ -7,6 +7,7 @@ using Domain;
 using Persistence;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Nurse
 {
@@ -18,13 +19,14 @@ namespace Application.Nurse
         {
 
             private readonly DataContext _context;
+
             public Handler(DataContext context)
             {
                     _context = context;
             }
             public async Task<List<Infermierja>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Infermjeret.ToListAsync();
+                return await _context.Infermjeret.ToListAsync(cancellationToken);
             }
 
             
