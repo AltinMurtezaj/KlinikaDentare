@@ -138,3 +138,6 @@ C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\bin\Debug\net5.0\Microsoft
 C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Safet\Desktop\altin project\KlinikaDentare\api\obj\Debug\net5.0\API.dll
+C:\Users\Safet\Desktop\altin project\KlinikaDentare\api\obj\Debug\net5.0\ref\API.dll
+C:\Users\Safet\Desktop\altin project\KlinikaDentare\api\obj\Debug\net5.0\API.pdb
