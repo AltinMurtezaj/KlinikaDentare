@@ -18,7 +18,97 @@ namespace Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("Domain.Accountant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Adresa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Datelindja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mbiemri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("phone")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accountants");
+                });
+
+            modelBuilder.Entity("Domain.Doktori", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Datelindja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Kualifikimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NrKontaktues")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specializimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vendbanimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Doktoret");
+                });
+
             modelBuilder.Entity("Domain.Infermierja", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Datelindja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Kualifikimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NrKontaktues")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specializimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vendbanimi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Infermjeret");
+                });
+
+            modelBuilder.Entity("Domain.Pacienti", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,7 +123,22 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Infermjeret");
+                    b.ToTable("Pacientet");
+                });
+
+            modelBuilder.Entity("Domain.Termini", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Orari")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TerminiPacientit");
                 });
 #pragma warning restore 612, 618
         }

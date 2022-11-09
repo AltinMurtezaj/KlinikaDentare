@@ -9,7 +9,7 @@ namespace Domain
     {
         public int Id {get;set;}
         public string Emri  {get;set;}
-        public DateTime Datelindja {get;set;}
+        public string Datelindja {get;set;}
         public string Kualifikimi {get;set;}
         public string Specializimi {get;set;}
         public string Vendbanimi {get;set;}

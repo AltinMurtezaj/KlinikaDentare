@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Persistence;
 
 namespace API
 {
@@ -23,7 +24,7 @@ namespace API
 
            try
            {
-                var context = services.GetRequireService<DataContext>();
+                var context = services.GetRequiredService<DataContext>();
                 context.Database.Migrate();
            }
            catch(Exception ex)

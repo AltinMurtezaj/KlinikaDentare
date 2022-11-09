@@ -6,28 +6,47 @@ using Microsoft.AspNetCore.Mvc;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using MediatR;
+using Application.Nurse;
 
 namespace API.Controllers
 {
     public class InfermierjaController : BaseApiController
     {
-        private readonly DataContext _context;
-        public InfermierjaController(DataContext context)
-        {
-            _context = context;
-        }
+        
 
         [HttpGet]
         public async Task<ActionResult<List<Infermierja>>> GetInfermierja()
         {
-            return await _context.Infermjeret.ToListAsync();
+            return await Mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Infermierja>> GetInfermierja(int Id)
+        public async Task<ActionResult<Infermierja>> GetInfermierja(int id)
         {
-            return await _context.Infermjeret.FindAsync(Id);
+            return await Mediator.Send(new Details.Query{Id = id});
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> CreateInfermierja(Infermierja infermierja)
+        {
+            return Ok(await Mediator.Send(new Create.Command {Infermierja = infermierja}));
+        }
+
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> EditInfermierja(int id, Infermierja infermierja)
+        {
+            infermierja.Id = id;
+            return Ok(await Mediator.Send(new Edit.Command{Infermierja = infermierja}));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteInfermierja(int id)
+        {
+            return Ok(await Mediator.Send(new Delete.Command{Id = id}));
         }
     }
 }
