@@ -28,7 +28,6 @@ namespace Application.Nurse
             {
                 return await _context.Infermjeret.ToListAsync(cancellationToken);
             }
-
             
         }
     }
