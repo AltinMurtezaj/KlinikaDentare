@@ -3,16 +3,8 @@ build_property.TargetFramework = net5.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.PublishSingleFile = 
+build_property.IncludeAllContentForSelfExtract = 
+build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Domain
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\PULSE Electronics\Desktop\KlinikaDentare\Domain\
-=======
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\Safet\Desktop\altin project\KlinikaDentare\Domain\
-=======
 build_property.ProjectDir = C:\Users\PULSE Electronics\Desktop\KlinikaDentare\Domain\
->>>>>>> ec36ef186e1ccf1b2012f0a32d75da467be7bc22
->>>>>>> 635827563ff4d3f8d1d42923c8e0914ee1114bfa
