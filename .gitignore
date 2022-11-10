@@ -485,3 +485,6 @@ Domain/obj/Debug/net5.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
 Persistence/obj/Debug/net5.0/Persistence.assets.cache
 Persistence/obj/Debug/net5.0/Persistence.csproj.AssemblyReference.cache
 Persistence/obj/Debug/net5.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
+API/obj/Debug/net5.0/API.csproj.AssemblyReference.cache
+Application/obj/Debug/net5.0/Application.csproj.AssemblyReference.cache
+Persistence/obj/Debug/net5.0/Persistence.csproj.AssemblyReference.cache
