@@ -7,45 +7,45 @@ using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using MediatR;
-using Application.Department;
+using Application.Pacient;
 using System.Threading;
 
 namespace API.Controllers
 {
-    public class DepartamentiController : BaseApiController
+    public class PacientController : BaseApiController
     {
         
 
         [HttpGet]
-        public async Task<ActionResult<List<Departamenti>>> GetDepartamenti()
+        public async Task<ActionResult<List<Pacienti>>> GetPacienti()
         {
             return await Mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Departamenti>> GetDepartamenti(int id)
+        public async Task<ActionResult<Pacienti>> GetDPacienti(int id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         }
 
         [HttpPost]
 
-        public async Task<IActionResult> CreateDepartamenti(Departamenti departamenti)
+        public async Task<IActionResult> CreatePacienti(Pacienti pacienti)
         {
-            return Ok(await Mediator.Send(new Create.Command {Departamenti = departamenti}));
+            return Ok(await Mediator.Send(new Create.Command {Pacienti = pacienti}));
         }
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> EditDepartamenti(int id, Departamenti departamenti)
+        public async Task<IActionResult> EditPacienti(int id, Pacienti pacienti)
         {
-            departamenti.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Departamenti = departamenti}));
+            pacienti.Id = id;
+            return Ok(await Mediator.Send(new Edit.Command{Pacienti = pacienti}));
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDepartamenti(int id)
+        public async Task<IActionResult> DeletePacienti(int id)
         {
             return Ok(await Mediator.Send(new Delete.Command{Id = id}));
         }
