@@ -12,7 +12,7 @@ namespace Application.Core
         public MappingProfiles()
         {
             CreateMap<Infermierja, Infermierja>();
-            CreateMap<Departamenti, Departamenti>();
+           
             
         }
     }
