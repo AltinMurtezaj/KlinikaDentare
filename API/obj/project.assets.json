@@ -6157,19 +6157,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\": {}
+    "C:\\Users\\Safet\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\API\\obj\\",
+      "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\api\\API.csproj",
+      "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6177,14 +6177,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj"
+            "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj"
             }
           }
         }

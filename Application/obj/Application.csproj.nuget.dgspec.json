@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj": {}
+    "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj": {
+    "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj"
+              "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj"
+              "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -75,17 +75,17 @@
         }
       }
     },
-    "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj": {
+    "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
         },
         "frameworks": {
           "net5.0": {
@@ -129,17 +129,17 @@
         }
       }
     },
-    "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\obj\\",
+        "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,14 +147,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj"
+              "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj"
               }
             }
           }
