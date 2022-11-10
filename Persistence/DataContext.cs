@@ -22,6 +22,7 @@ namespace Persistence
         public object Infermierja { get; set; }
 
         public DbSet<Departamenti> Departament{get; set;}
+        
         public DbSet<Eventet> EventiKlinikes {get; set;}
         public DbSet<Account> AccountDetails {get; set;}
         public DbSet<Laboranti> Laborantet {get; set;}
