@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221109122438_InitialCreate")]
+    [Migration("20221110163027_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,24 @@ namespace Persistence.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
+
+            modelBuilder.Entity("Domain.Account", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("LogIn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignUp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AccountDetails");
+                });
 
             modelBuilder.Entity("Domain.Accountant", b =>
                 {
@@ -48,6 +66,27 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Accountants");
+                });
+
+            modelBuilder.Entity("Domain.Departamenti", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kapacitetiStafit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lokacioni")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departament");
                 });
 
             modelBuilder.Entity("Domain.Doktori", b =>
@@ -80,6 +119,54 @@ namespace Persistence.Migrations
                     b.ToTable("Doktoret");
                 });
 
+            modelBuilder.Entity("Domain.Eventet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("EmriEventit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FillimiEventit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MbarimiEventit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PershkrimiEventit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EventiKlinikes");
+                });
+
+            modelBuilder.Entity("Domain.Farmacisti", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Datelindja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmriFarmacistit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MbiemriFarmacistit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Farmacistet");
+                });
+
             modelBuilder.Entity("Domain.Infermierja", b =>
                 {
                     b.Property<int>("Id")
@@ -110,6 +197,33 @@ namespace Persistence.Migrations
                     b.ToTable("Infermjeret");
                 });
 
+            modelBuilder.Entity("Domain.Laboranti", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Datelindja")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Laboratori")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mbiemri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Laborantet");
+                });
+
             modelBuilder.Entity("Domain.Pacienti", b =>
                 {
                     b.Property<int>("Id")
@@ -126,6 +240,27 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pacientet");
+                });
+
+            modelBuilder.Entity("Domain.StafiTeknik", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mbiemri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StafiT");
                 });
 
             modelBuilder.Entity("Domain.Termini", b =>
