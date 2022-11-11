@@ -5899,19 +5899,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Safet\\.nuget\\packages\\": {}
+    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Application\\obj\\",
+      "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5919,17 +5919,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Domain\\Domain.csproj"
+            "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\Safet\\Desktop\\altin project\\KlinikaDentare\\Persistence\\Persistence.csproj"
+            "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj"
             }
           }
         }
