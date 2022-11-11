@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221110163027_InitialCreate")]
+    [Migration("20221111180204_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,8 @@ namespace Persistence.Migrations
 
                     b.ToTable("Accountants");
                 });
+
+            
 
             modelBuilder.Entity("Domain.Departamenti", b =>
                 {

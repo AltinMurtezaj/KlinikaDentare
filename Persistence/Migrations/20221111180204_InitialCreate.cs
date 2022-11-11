@@ -38,6 +38,8 @@ namespace Persistence.Migrations
                     table.PrimaryKey("PK_AccountDetails", x => x.Id);
                 });
 
+            
+
             migrationBuilder.CreateTable(
                 name: "Departament",
                 columns: table => new
@@ -188,6 +190,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AccountDetails");
+
+            migrationBuilder.DropTable(
+                name: "Arlindi");
 
             migrationBuilder.DropTable(
                 name: "Departament");
