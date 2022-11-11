@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Domain
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\PULSE Electronics\Desktop\KlinikaDentare\Domain\
+=======
+build_property.ProjectDir = c:\Users\Safet\Desktop\altin project\KlinikaDentare\Domain\
+>>>>>>> 433a1364afd8071539c5d5dd733c2274f33c09ab
