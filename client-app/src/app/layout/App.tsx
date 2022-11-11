@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Header, List } from 'semantic-ui-react';
+import { Container} from 'semantic-ui-react';
 import { Infermierja } from './models/infermierja';
 import NavBar from './NavBar';
 import InfermierjaDashboard from '../../features/infermjeret/dashboard/InfermierjaDashboard';
+import {v4 as uuid} from 'uuid';
 
 function App() {
   const [infermjeret, setInfermjeret] = useState<Infermierja[]>([]);
@@ -34,6 +35,18 @@ function App() {
     setEditMode(false);
   }
 
+  function handeleCreateOrEditInfermierja(infermierja: Infermierja){
+    infermierja.id ? setInfermjeret([...infermjeret.filter(x => x.id!== infermierja.id), infermierja])
+    : setInfermjeret([...infermjeret, {...infermierja, id: uuid()}]);
+    setEditMode(false);
+    setSelectedInfermierja(infermierja);
+  }
+
+  function handleDeleteInfermierja(id: string){
+    setInfermjeret([...infermjeret.filter(x => x.id !== id)])
+  }
+
+
   return (
     <Fragment>
         <NavBar openForm={handleFormOpen} />
@@ -47,6 +60,8 @@ function App() {
           editMode = {editMode}
           openForm={handleFormOpen}
           closeForm = {handeleFormClose}
+          createOrEdit={handeleCreateOrEditInfermierja}
+          deleteInfermierja={handleDeleteInfermierja}
           />
         </Container>
     </Fragment>

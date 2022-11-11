@@ -13,14 +13,19 @@ interface Props {
     editMode: boolean;
     openForm: (id: string) => void;
     closeForm: () => void;
+    createOrEdit: (infermierja: Infermierja) => void;
+    deleteInfermierja: (id: string) => void;
 }
 
-export default function InfermierjaDashboard ({infermjeret, selectedInfermierja,
-     selectInfermierja, cancelSelectInfermierja, editMode, openForm, closeForm}: Props) {
+export default function InfermierjaDashboard ({infermjeret, selectedInfermierja, deleteInfermierja,
+     selectInfermierja, cancelSelectInfermierja, editMode, openForm, closeForm, createOrEdit}: Props) {
     return (
         <Grid>
             <Grid.Column width='10'>
-                <InfermjeretList infermjeret={infermjeret} selectInfermierja={selectInfermierja} />
+                <InfermjeretList infermjeret={infermjeret}
+                 selectInfermierja={selectInfermierja} 
+                 deleteInfermierja={deleteInfermierja}
+                 />
             </Grid.Column>
             <Grid.Column width ='6'>
                 {selectedInfermierja && !editMode &&
@@ -30,7 +35,7 @@ export default function InfermierjaDashboard ({infermjeret, selectedInfermierja,
                 openForm={openForm}
                 />}
                 {editMode &&
-                <InfermierjaForm closeForm={closeForm} infermierja={selectedInfermierja}/>}
+                <InfermierjaForm closeForm={closeForm} infermierja={selectedInfermierja} createOrEdit={createOrEdit}/>}
             </Grid.Column>
         </Grid>
     )

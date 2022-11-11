@@ -6,9 +6,10 @@ import { Infermierja } from "../../../../app/layout/models/infermierja";
 interface Props {
     infermierja: Infermierja | undefined;
     closeForm: () => void;
+    createOrEdit: (Infermierja: Infermierja) => void;
 }
 
-export default function InfermierjaForm ({infermierja: selectedInfermierja, closeForm}: Props){
+export default function InfermierjaForm ({infermierja: selectedInfermierja, closeForm, createOrEdit}: Props){
     
     const initialState = selectedInfermierja ?? {
         id: '',
@@ -23,7 +24,7 @@ export default function InfermierjaForm ({infermierja: selectedInfermierja, clos
     const [infermierja, setInfermierja] = useState(initialState);
 
     function handleSubmit(){
-        console.log(infermierja);
+        createOrEdit(infermierja);
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){

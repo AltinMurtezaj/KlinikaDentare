@@ -5,9 +5,10 @@ import { Infermierja } from "../../../app/layout/models/infermierja";
 interface Props{
     infermjeret: Infermierja[];
     selectInfermierja: (id: string) => void;
+    deleteInfermierja: (id: string) => void;
 }
 
-export default function InfermjeretList({infermjeret, selectInfermierja}: Props){
+export default function InfermjeretList({infermjeret, selectInfermierja, deleteInfermierja}: Props){
     return(
         <Segment>
             <Item.Group divided>
@@ -22,6 +23,7 @@ export default function InfermjeretList({infermjeret, selectInfermierja}: Props)
                             </Item.Description>
                             <Item.Extra>
                                 <Button onClick={()=>selectInfermierja(infermierja.id)} floated='right' content='View' color='blue' />
+                                <Button onClick={()=>deleteInfermierja(infermierja.id)} floated='right' content='Delete' color='red' />
                                 <Label basic content = {infermierja.nrKontaktues}/>
                             </Item.Extra>
                         </Item.Content>
