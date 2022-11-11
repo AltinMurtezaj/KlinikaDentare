@@ -1,10 +1,10 @@
 export interface Infermierja {
-    id: number
+    id: string
     emri: string
     datelindja: string
     kualifikimi: string
     specializimi: string
     vendbanimi: string
-    nrKontaktues: number
+    nrKontaktues: string
   }
   
