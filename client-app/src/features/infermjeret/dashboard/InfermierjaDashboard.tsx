@@ -15,16 +15,19 @@ interface Props {
     closeForm: () => void;
     createOrEdit: (infermierja: Infermierja) => void;
     deleteInfermierja: (id: string) => void;
+    submitting: boolean;
 }
 
 export default function InfermierjaDashboard ({infermjeret, selectedInfermierja, deleteInfermierja,
-     selectInfermierja, cancelSelectInfermierja, editMode, openForm, closeForm, createOrEdit}: Props) {
+     selectInfermierja, cancelSelectInfermierja, editMode, openForm,
+      closeForm, createOrEdit, submitting}: Props) {
     return (
         <Grid>
             <Grid.Column width='10'>
                 <InfermjeretList infermjeret={infermjeret}
                  selectInfermierja={selectInfermierja} 
                  deleteInfermierja={deleteInfermierja}
+                 submitting={submitting}
                  />
             </Grid.Column>
             <Grid.Column width ='6'>
@@ -35,7 +38,12 @@ export default function InfermierjaDashboard ({infermjeret, selectedInfermierja,
                 openForm={openForm}
                 />}
                 {editMode &&
-                <InfermierjaForm closeForm={closeForm} infermierja={selectedInfermierja} createOrEdit={createOrEdit}/>}
+                <InfermierjaForm 
+                closeForm={closeForm}
+                 infermierja={selectedInfermierja} 
+                 createOrEdit={createOrEdit}
+                 submitting = {submitting}
+                 />}
             </Grid.Column>
         </Grid>
     )

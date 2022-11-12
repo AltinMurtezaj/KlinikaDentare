@@ -15,6 +15,8 @@ export default function NavBar({openForm}: Props){
                 </Menu.Item>
                 <Menu.Item name ='Infermjeret' />
                 <Menu.Item>
+                </Menu.Item>
+                <Menu.Item>
                     <Button onClick={openForm} positive content='Create Infermierja'/>
                 </Menu.Item>
             </Container>

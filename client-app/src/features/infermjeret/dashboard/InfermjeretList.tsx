@@ -1,14 +1,22 @@
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
+import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { Infermierja } from "../../../app/layout/models/infermierja";
 
 interface Props{
     infermjeret: Infermierja[];
     selectInfermierja: (id: string) => void;
     deleteInfermierja: (id: string) => void;
+    submitting: boolean;
 }
 
-export default function InfermjeretList({infermjeret, selectInfermierja, deleteInfermierja}: Props){
+export default function InfermjeretList({infermjeret, selectInfermierja, deleteInfermierja, submitting}: Props){
+    const[target, setTarget] = useState('');
+
+    function handleActivityDelete(e: SyntheticEvent<HTMLButtonElement>, id: string){
+        setTarget(e.currentTarget.name);
+        deleteInfermierja(id);
+    }
     return(
         <Segment>
             <Item.Group divided>
@@ -23,7 +31,13 @@ export default function InfermjeretList({infermjeret, selectInfermierja, deleteI
                             </Item.Description>
                             <Item.Extra>
                                 <Button onClick={()=>selectInfermierja(infermierja.id)} floated='right' content='View' color='blue' />
-                                <Button onClick={()=>deleteInfermierja(infermierja.id)} floated='right' content='Delete' color='red' />
+                                <Button
+                                name={infermierja.id}
+                                loading={submitting && target === infermierja.id} 
+                                onClick={(e)=>handleActivityDelete(e, infermierja.id)}
+                                floated='right'
+                                content='Delete'
+                                color='red' />
                                 <Label basic content = {infermierja.nrKontaktues}/>
                             </Item.Extra>
                         </Item.Content>
