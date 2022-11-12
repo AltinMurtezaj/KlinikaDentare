@@ -8,7 +8,11 @@ build_property.IncludeAllContentForSelfExtract =
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = API
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\Safet\Desktop\project\KlinikaDentare\API\
+=======
+build_property.ProjectDir = C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\
+>>>>>>> 9fdd5945cd52f66e45370a666dc402c544a0abc0
 =======
 build_property.ProjectDir = C:\Users\PULSE Electronics\Desktop\KlinikaDentare\API\
 >>>>>>> 9fdd5945cd52f66e45370a666dc402c544a0abc0
