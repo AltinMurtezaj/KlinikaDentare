@@ -9,7 +9,11 @@ build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Application
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\Safet\Desktop\project\KlinikaDentare\Application\
+=======
+build_property.ProjectDir = C:\Users\PULSE Electronics\Desktop\KlinikaDentare\Application\
+>>>>>>> 9fdd5945cd52f66e45370a666dc402c544a0abc0
 =======
 build_property.ProjectDir = C:\Users\PULSE Electronics\Desktop\KlinikaDentare\Application\
 >>>>>>> 9fdd5945cd52f66e45370a666dc402c544a0abc0
