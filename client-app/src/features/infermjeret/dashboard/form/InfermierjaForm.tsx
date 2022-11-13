@@ -6,7 +6,7 @@ import { Infermierja } from "../../../../app/layout/models/infermierja";
 interface Props {
     infermierja: Infermierja | undefined;
     closeForm: () => void;
-    createOrEdit: (Infermierja: Infermierja) => void;
+    createOrEdit: (infermierja: Infermierja) => void;
     submitting: boolean;
 }
 

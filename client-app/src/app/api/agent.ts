@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import { resolve } from "path";
 import { Infermierja } from "../layout/models/infermierja";
 
 const sleep=(delay: number) =>{

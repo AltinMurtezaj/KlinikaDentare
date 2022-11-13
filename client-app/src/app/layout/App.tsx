@@ -17,13 +17,13 @@ function App() {
 
   useEffect(() => {
    agent.Infermjeret.list().then(response =>{
-     let Infermjeret: Infermierja[] = [];
+     let infermjeret: Infermierja[] = [];
      response.forEach(infermierja => {
-      infermierja.datelindja = infermierja.datelindja.split(' ')[0];
-      Infermjeret.push(infermierja);
+      infermierja.datelindja = infermierja.datelindja.split('T')[0];
+      infermjeret.push(infermierja);
      })
 
-      setInfermjeret(response);
+      setInfermjeret(infermjeret);
       setLoading(false);
     })
   }, [])
