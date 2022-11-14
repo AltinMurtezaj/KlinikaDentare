@@ -11,7 +11,7 @@ function App() {
   const [infermjeret, setInfermjeret] = useState<Infermierja[]>([]);
   const [selectedInfermierja, setSelectedInfermierja] = useState<Infermierja | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   
 

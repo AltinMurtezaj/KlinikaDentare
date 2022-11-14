@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
@@ -37,8 +38,6 @@ namespace Persistence.Migrations
                 {
                     table.PrimaryKey("PK_AccountDetails", x => x.Id);
                 });
-
-            
 
             migrationBuilder.CreateTable(
                 name: "Departament",
@@ -109,14 +108,13 @@ namespace Persistence.Migrations
                 name: "Infermjeret",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Datelindja = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Datelindja = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vendbanimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NrKontaktues = table.Column<int>(type: "int", nullable: false)
+                    NrKontaktues = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -190,9 +188,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AccountDetails");
-
-            migrationBuilder.DropTable(
-                name: "Arlindi");
 
             migrationBuilder.DropTable(
                 name: "Departament");

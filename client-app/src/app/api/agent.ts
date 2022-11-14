@@ -7,7 +7,7 @@ const sleep=(delay: number) =>{
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 axios.interceptors.response.use(async response => {
     try {
@@ -28,11 +28,11 @@ const requests = {
 }
 
 const Infermjeret = {
-    list: () => requests.get<Infermierja[]>('/infermierja'),
-    details: (id: string) => requests.get<Infermierja>(`/infermierja/${id}`),
-    create: (infermierja: Infermierja) => axios.post<void>('/infermierja', infermierja),
-    update: (infermierja: Infermierja) => axios.put<void>(`/infermierja/${infermierja.id}`,infermierja),
-    delete: (id: string) => axios.delete<void>(`/infermierja/${id}`)
+    list: () => requests.get<Infermierja[]>('Infermierja'),
+    details: (id: string) => requests.get<Infermierja>(`Infermierja/${id}`),
+    create: (infermierja: Infermierja) => axios.post<void>('Infermierja', infermierja),
+    update: (infermierja: Infermierja) => axios.put<void>(`Infermierja/${infermierja.id}`,infermierja),
+    delete: (id: string) => axios.delete<void>(`Infermierja/${id}`)
 }
 const agent = {
     Infermjeret
