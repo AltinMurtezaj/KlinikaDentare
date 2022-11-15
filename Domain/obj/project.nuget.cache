@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U5e0C3dzv1WInswliBXPUCtbJIX8vlrH2a/rh/mZgIweG8K9ZGarsSRgKkX7HVZ0FGeQJ0vXcLzF+WuODIS/aA==",
+  "dgSpecHash": "c6y7f+09DhHEsuuWsQ4Jx6HEWuVl+rBGlllN3WM7vso/ckAgNGz+mtPiq1PaoHRzfMXo0gtj1zfXEDa+j505EA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

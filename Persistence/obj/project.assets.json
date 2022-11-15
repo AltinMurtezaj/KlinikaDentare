@@ -5722,11 +5722,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\obj\\",
+      "outputPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5743,8 +5743,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Domain\\Domain.csproj"
+            "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Domain\\Domain.csproj"
             }
           }
         }

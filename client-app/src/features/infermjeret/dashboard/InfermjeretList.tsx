@@ -1,26 +1,24 @@
+import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
-import LoadingComponent from "../../../app/layout/LoadingComponents";
-import { Infermierja } from "../../../app/layout/models/infermierja";
+import { useStore } from "../../../app/stores/store";
 
-interface Props{
-    infermjeret: Infermierja[];
-    selectInfermierja: (id: string) => void;
-    deleteInfermierja: (id: string) => void;
-    submitting: boolean;
-}
 
-export default function InfermjeretList({infermjeret, selectInfermierja, deleteInfermierja, submitting}: Props){
+export default observer(function InfermjeretList(){
+    const {infermierjaStore} = useStore();
+    const {deleteInfermierja, infermjeretByDate, loading} = infermierjaStore;
+
     const[target, setTarget] = useState('');
 
     function handleActivityDelete(e: SyntheticEvent<HTMLButtonElement>, id: string){
         setTarget(e.currentTarget.name);
         deleteInfermierja(id);
     }
+
     return(
         <Segment>
             <Item.Group divided>
-                {infermjeret.map(infermierja => (
+                {infermjeretByDate.map(infermierja => (
                     <Item key={infermierja.id}>
                         <Item.Content>
                             <Item.Header as='a'>{infermierja.emri}</Item.Header>
@@ -30,10 +28,10 @@ export default function InfermjeretList({infermjeret, selectInfermierja, deleteI
                                 <div>{infermierja.specializimi}, {infermierja.vendbanimi}</div>
                             </Item.Description>
                             <Item.Extra>
-                                <Button onClick={()=>selectInfermierja(infermierja.id)} floated='right' content='View' color='blue' />
+                                <Button onClick={()=>infermierjaStore.selectInfermierja(infermierja.id)} floated='right' content='View' color='blue' />
                                 <Button
                                 name={infermierja.id}
-                                loading={submitting && target === infermierja.id} 
+                                loading={loading && target === infermierja.id} 
                                 onClick={(e)=>handleActivityDelete(e, infermierja.id)}
                                 floated='right'
                                 content='Delete'
@@ -46,4 +44,4 @@ export default function InfermjeretList({infermjeret, selectInfermierja, deleteI
             </Item.Group>
         </Segment>
     )
-}
+})

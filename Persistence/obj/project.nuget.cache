@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "THnxoqCyWNkGSw29u5+9mxKSkkcW1JpKZkSfspMQktflkLfd9rX7KKSBk2sshT85aakpfZs+h0zTnMq7cjqZWA==",
+  "dgSpecHash": "2HbiHy0Dssk2FnU0BJ7H5SoE6zZv+sa5ibn237acaPtx5vRt+XTMuAFMiaiAyShR9rsPZTSyGf20UU0zGfShdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Persistence\\Persistence.csproj",
+  "projectFilePath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

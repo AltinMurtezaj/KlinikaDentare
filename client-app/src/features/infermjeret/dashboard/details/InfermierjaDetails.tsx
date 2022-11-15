@@ -1,14 +1,14 @@
 import React from "react";
 import { Button, Card, Image} from "semantic-ui-react";
-import { Infermierja } from "../../../../app/layout/models/infermierja";
+import LoadingComponent from "../../../../app/layout/LoadingComponents";
+import { useStore } from "../../../../app/stores/store";
 
-interface Props {
-    infermierja: Infermierja;
-    cancelSelectInfermierja: () => void;
-    openForm: (id: string) => void;
-}
+export default function InfermierjaDetails(){
+    const {infermierjaStore} = useStore();
+    const {selectedInfermierja: infermierja, openForm, cancelSelectedActivity} = infermierjaStore;
 
-export default function InfermierjaDetails({infermierja, cancelSelectInfermierja, openForm}: Props){
+    if(!infermierja) return <LoadingComponent content={""} />;
+
     return (
     <Card fluid>
     <Image src={`/assets/2bc69970-9a38-43f1-b196-252f32cb6144/${infermierja.emri}.jpg`}/>
@@ -24,7 +24,7 @@ export default function InfermierjaDetails({infermierja, cancelSelectInfermierja
     <Card.Content extra>
       <Button.Group widths='2'>
         <Button onClick={() => openForm(infermierja.id)} basic color='blue' content='Edit'/>
-        <Button onClick={cancelSelectInfermierja} basic color='grey' content='Cancel'/>
+        <Button onClick={cancelSelectedActivity} basic color='grey' content='Cancel'/>
       </Button.Group> 
     </Card.Content>
   </Card>

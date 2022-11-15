@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GKtqDJuMb8iUsBxtDFPCVBg3BHgrV+0DL2P9Buc4YJ2+ypGrzl58W1l2TtIkjaUa8wX+25EvyznhjcZpjCCAaA==",
+  "dgSpecHash": "PPa1yuuNPcfjLT8xL4qCyTlClHr6/H4ENK2PcFl9emTctn10C7eFMpzwsxUxBt1ecPckVfeFFh4Qb6n3SXOFQA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

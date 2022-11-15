@@ -1,16 +1,13 @@
+import { observer } from "mobx-react-lite";
 import React, { ChangeEvent, useState } from "react";
 import { Button, Form, Segment } from "semantic-ui-react";
-import { Infermierja } from "../../../../app/layout/models/infermierja";
+import { useStore } from "../../../../app/stores/store";
 
 
-interface Props {
-    infermierja: Infermierja | undefined;
-    closeForm: () => void;
-    createOrEdit: (infermierja: Infermierja) => void;
-    submitting: boolean;
-}
 
-export default function InfermierjaForm ({infermierja: selectedInfermierja, closeForm, createOrEdit, submitting}: Props){
+export default observer( function InfermierjaForm (){
+    const {infermierjaStore} = useStore();
+    const {selectedInfermierja, closeForm, createInfermierja, updateInfermierja, loading} = infermierjaStore;
     
     const initialState = selectedInfermierja ?? {
         id: '',
@@ -25,7 +22,7 @@ export default function InfermierjaForm ({infermierja: selectedInfermierja, clos
     const [infermierja, setInfermierja] = useState(initialState);
 
     function handleSubmit(){
-        createOrEdit(infermierja);
+        infermierja.id ? updateInfermierja(infermierja) : createInfermierja(infermierja);
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
@@ -43,9 +40,9 @@ export default function InfermierjaForm ({infermierja: selectedInfermierja, clos
                 <Form.Input placeholder='Specializimi' value={infermierja.specializimi} name='specializimi' onChange={handleInputChange} />
                 <Form.Input placeholder='Vendbanimi' value={infermierja.vendbanimi} name='vendbanimi' onChange={handleInputChange} />
                 <Form.Input placeholder='nrKontaktues' value={infermierja.nrKontaktues} name='nrKontaktues' onChange={handleInputChange} />
-                <Button loading={submitting} floated='right' positive type ='submit' content='Submit'/>
+                <Button loading={loading} floated='right' positive type ='submit' content='Submit'/>
                 <Button onClick={closeForm} floated='right' type ='button' content='Cancel'/>
             </Form>
         </Segment>
     )
-}
+})
