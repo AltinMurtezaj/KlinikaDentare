@@ -1,30 +1,34 @@
-import React, { Fragment, useEffect } from 'react';
+import React from 'react';
 import {  Container} from 'semantic-ui-react';
 import NavBar from './NavBar';
 import InfermierjaDashboard from '../../features/infermjeret/dashboard/InfermierjaDashboard';
-import LoadingComponent from './LoadingComponents';
-import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
+import { Route, useLocation } from 'react-router-dom';
+import HomePage from '../../features/home/HomePage';
+import InfermierjaForm from '../../features/infermjeret/dashboard/form/InfermierjaForm';
+import InfermierjaDetails from '../../features/infermjeret/dashboard/details/InfermierjaDetails';
 
 function App() {
-  const {infermierjaStore} = useStore();
-
-  
-
-  useEffect(() => {
-   infermierjaStore.loadInfermjeret();
-  }, [infermierjaStore])
-
-if(infermierjaStore.loadingInitial) return <LoadingComponent content='Loading app'/>
+  const location = useLocation();
   return (
-    <Fragment>
+    <>
+     <Route exact path='/' component={HomePage}/>
+     <Route 
+     path={'/(.+)'}
+      render={()=>(
+        <>
         <NavBar />
-    
         <Container style={{marginTop: '7em'}}>
-          <InfermierjaDashboard />
+         <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
+         <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
+         <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>
         </Container>
-    </Fragment>
+        </>
+      )}
+     />
+    </>
   );
 }
 
 export default observer (App);
+  

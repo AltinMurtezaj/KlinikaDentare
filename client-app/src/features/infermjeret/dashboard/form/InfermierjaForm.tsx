@@ -1,15 +1,22 @@
 import { observer } from "mobx-react-lite";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Button, Form, Segment } from "semantic-ui-react";
+import LoadingComponent from "../../../../app/layout/LoadingComponents";
 import { useStore } from "../../../../app/stores/store";
+import {v4 as uuid} from 'uuid';
+
 
 
 
 export default observer( function InfermierjaForm (){
+    const history = useHistory();
     const {infermierjaStore} = useStore();
-    const {selectedInfermierja, closeForm, createInfermierja, updateInfermierja, loading} = infermierjaStore;
-    
-    const initialState = selectedInfermierja ?? {
+    const {createInfermierja, updateInfermierja, loadInfermierja, 
+    loading, loadingInitial} = infermierjaStore;
+    const {id} = useParams<{id: string}>();
+
+    const [infermierja, setInfermierja] = useState({
         id: '',
         emri: '',
         datelindja: '',
@@ -17,12 +24,23 @@ export default observer( function InfermierjaForm (){
         specializimi: '',
         vendbanimi: '',
         nrKontaktues: ''
-    }
+    });
 
-    const [infermierja, setInfermierja] = useState(initialState);
+    useEffect(() => {
+        if (id) loadInfermierja(id).then(infermierja => setInfermierja(infermierja!))
+    }, [id, loadInfermierja]);
 
     function handleSubmit(){
-        infermierja.id ? updateInfermierja(infermierja) : createInfermierja(infermierja);
+        if(infermierja.id.length === 0){
+            let newInfermierja = {
+                ...infermierja,
+                id: uuid()
+            };
+            createInfermierja(newInfermierja).then(() => history.push(`/infermjeret/${newInfermierja.id}`))
+            }else{
+                updateInfermierja(infermierja).then(() => history.push(`/infermjeret/${infermierja.id}`))
+            }
+        
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
@@ -30,6 +48,8 @@ export default observer( function InfermierjaForm (){
         setInfermierja({...infermierja, [name]: value})
     }
 
+
+    if(loadingInitial) return <LoadingComponent content='Loading infermierja...' />
 
     return(
         <Segment clearing>
@@ -41,7 +61,7 @@ export default observer( function InfermierjaForm (){
                 <Form.Input placeholder='Vendbanimi' value={infermierja.vendbanimi} name='vendbanimi' onChange={handleInputChange} />
                 <Form.Input placeholder='nrKontaktues' value={infermierja.nrKontaktues} name='nrKontaktues' onChange={handleInputChange} />
                 <Button loading={loading} floated='right' positive type ='submit' content='Submit'/>
-                <Button onClick={closeForm} floated='right' type ='button' content='Cancel'/>
+                <Button as={Link} to='/infermjeret' floated='right' type ='button' content='Cancel'/>
             </Form>
         </Segment>
     )

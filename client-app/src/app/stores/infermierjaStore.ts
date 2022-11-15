@@ -1,7 +1,6 @@
 import {makeAutoObservable, runInAction} from "mobx"
 import agent from "../api/agent";
-import { Infermierja } from "../layout/models/infermierja"
-import {v4 as uuid} from 'uuid';
+import { Infermierja } from "../layout/models/infermierja";
 
 export default class InfermierjaStore{
     infermierjaRegistry = new Map<string, Infermierja>();
@@ -20,11 +19,11 @@ export default class InfermierjaStore{
     }
 
     loadInfermjeret = async () => { 
+        this.loadingInitial = true;
         try{
             const infermjeret = await agent.Infermjeret.list();
                 infermjeret.forEach(infermierja => {
-                    infermierja.datelindja = infermierja.datelindja.split('T')[0];
-                    this.infermierjaRegistry.set(infermierja.id, infermierja);
+                    this.setInfermierja(infermierja);
             })
             this.setLoadingInitial(false); 
         }catch(error){
@@ -32,31 +31,43 @@ export default class InfermierjaStore{
             this.setLoadingInitial(false); 
         }
     }
+    loadInfermierja = async (id:string) => {
+        let infermierja = this.getInfermierja(id);
+        if(infermierja){
+            this.selectedInfermierja = infermierja;
+            return infermierja;
+        }else{
+            this.loadingInitial =true;
+            try {
+                infermierja = await agent.Infermjeret.details(id);
+                this.setInfermierja(infermierja);
+                runInAction(() => {
+                    this.selectedInfermierja = infermierja;
+                })
+                this.setLoadingInitial(false);
+                return infermierja;
+            } catch (error) {
+                console.log(error);
+                this.setLoadingInitial(false);
+            }
+        }
+    }
+    private setInfermierja = (infermierja: Infermierja) => {
+        infermierja.datelindja = infermierja.datelindja.split('T')[0];
+        this.infermierjaRegistry.set(infermierja.id, infermierja);
+    }
+
+    private getInfermierja= (id: string) => {
+        return this.infermierjaRegistry.get(id);
+    }
 
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
     }
 
-    selectInfermierja = (id: string) => {
-        this.selectedInfermierja = this.infermierjaRegistry.get(id);
-    }
-
-    cancelSelectedActivity = () => {
-        this.selectedInfermierja = undefined;
-    }
-
-    openForm = (id?: string) => {
-        id ? this.selectInfermierja(id) : this.cancelSelectedActivity();
-        this.editMode = true;
-    }
-
-    closeForm = () => {
-        this.editMode = false;
-    }
 
     createInfermierja = async (infermierja: Infermierja) => {
         this.loading = true;
-        infermierja.id = uuid();
         try {
             await agent.Infermjeret.create(infermierja);
             runInAction(() =>{
@@ -97,7 +108,6 @@ export default class InfermierjaStore{
             await agent.Infermjeret.delete(id);
             runInAction(() => {
                 this.infermierjaRegistry.delete(id);
-                if(this.selectedInfermierja?.id ===id) this.cancelSelectedActivity();
                 this.loading = false;
             })
 
