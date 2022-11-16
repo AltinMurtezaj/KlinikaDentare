@@ -18,6 +18,16 @@ export default class InfermierjaStore{
          Date.parse(a.datelindja) - Date.parse(b.datelindja));
     }
 
+    get grouperInfermjeret (){
+        return Object.entries(
+            this.infermjeretByDate.reduce((infermjeret, infermierja) =>{
+                const datelindja = infermierja.datelindja;
+                infermjeret[datelindja] = infermjeret[datelindja] ? [...infermjeret[datelindja], infermierja] : [infermierja];
+                return infermjeret;
+            }, {} as {[key: string]: Infermierja[]})
+        )
+    }
+
     loadInfermjeret = async () => { 
         this.loadingInitial = true;
         try{
