@@ -8,6 +8,7 @@ namespace Domain
     public class Infermierja
     {
         public Guid Id {get;set;}
+
         public string Emri  {get;set;}
         public DateTime Datelindja {get;set;}
         public string Kualifikimi {get;set;}

@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "7rFJapulZsdMi01DueD1KxaUPq4hFPNaGncT7pfXdK8hI8NFebUTXCo25n7S7W5NMiyiaQOyfOfZ0WTKlfd67w==",
+  "dgSpecHash": "z4t27Ep8daLuTCCPtrkKGnOD7oXUOn0Kv41YoPdGoSDOzLPyyrZH7uxfm5TJuY4zgGkdjZc2jICOveXddO4Vyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PULSE Electronics\\Desktop\\KlinikaDentare\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
+    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\PULSE Electronics\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
