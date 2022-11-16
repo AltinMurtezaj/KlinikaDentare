@@ -1,5 +1,8 @@
 import React from 'react';
+import { Calendar } from 'react-calendar';
+
 import { Header, Menu } from 'semantic-ui-react';
+
 
 
 export default function InfermierjaFilters(){
@@ -12,6 +15,7 @@ export default function InfermierjaFilters(){
                 <Menu.Item content="I'm hosting" />
             </Menu>
             <Header />
+            <Calendar/>
         </>
     )
         
