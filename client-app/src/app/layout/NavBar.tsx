@@ -15,6 +15,7 @@ export default function NavBar(){
                     Klinika Dentare
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/infermjeret' name ='Infermjeret' />
+                <Menu.Item as={NavLink} to='/errors' name='Errors' />
                 <Menu.Item>
                     <Button as={NavLink} to='/createInfermjeret' positive content='Create Infermierja'/>
                 </Menu.Item>
