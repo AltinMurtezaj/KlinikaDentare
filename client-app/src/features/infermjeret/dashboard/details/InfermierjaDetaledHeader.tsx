@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
+import { Link } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import { Infermierja } from '../../../../app/layout/models/infermierja';
 
@@ -46,7 +47,7 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
             <Segment clearing attached='bottom'>
                 <Button color='teal'>Join Infermierja</Button>
                 <Button>Cancel attendance</Button>
-                <Button color='orange' floated='right'>
+                <Button as={Link} to={`/manage/${infermierja.id}`} color='orange' floated='right'>
                     Manage Infermierja
                 </Button>
             </Segment>

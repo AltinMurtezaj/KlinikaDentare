@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Application.Core;
 using System.Text.Json;
 
+
 namespace API.Middleware
 {
     public class ExceptionMiddleware
@@ -35,8 +36,8 @@ namespace API.Middleware
                 context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
                 
                 var response = _env.IsDevelopment()
-                        ? new AppException(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString())
-                        : new AppException(context.Response.StatusCode, "Server Error");
+                        ? new AppExceptions(context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString())
+                        : new AppExceptions(context.Response.StatusCode, "Server Error");
 
                 var options = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
 

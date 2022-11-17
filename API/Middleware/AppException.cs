@@ -1,12 +1,12 @@
 namespace API.Middleware
 {
-    internal class AppExceptions
+    internal class AppException
     {
         private int statusCode;
         private string message;
         private string v;
 
-        public AppExceptions(int statusCode, string message, string v)
+        public AppException(int statusCode, string message, string v)
         {
             this.statusCode = statusCode;
             this.message = message;

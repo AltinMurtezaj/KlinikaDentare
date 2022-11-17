@@ -1,10 +1,15 @@
 import { observer } from "mobx-react-lite";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Button, Form, Segment } from "semantic-ui-react";
+import { Button, Label, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../../app/layout/LoadingComponents";
 import { useStore } from "../../../../app/stores/store";
 import {v4 as uuid} from 'uuid';
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from 'yup';
+import MyTextInput from "../../../../app/common/form/MyTextInput";
+import MySelectInput from "./MySelectInput";
+import { specializimiOptions } from "../../../../app/common/form/options/specializimiOptions";
 
 
 
@@ -26,11 +31,20 @@ export default observer( function InfermierjaForm (){
         nrKontaktues: ''
     });
 
+    const validationSchema = Yup.object({
+        emri: Yup.string().required('This field must need to be filled'),
+        datelindja: Yup.string().required('This field must need to be filled'),
+        kualifikimi: Yup.string().required('This field must need to be filled'),
+        specializimi: Yup.string().required('This field must need to be filled'),
+        vendbanimi: Yup.string().required('This field must need to be filled'),
+        nrKontaktues: Yup.string().required('This field must need to be filled'),
+    })
+
     useEffect(() => {
         if (id) loadInfermierja(id).then(infermierja => setInfermierja(infermierja!))
     }, [id, loadInfermierja]);
 
-    function handleSubmit(){
+   /* function handleSubmit(){
         if(infermierja.id.length === 0){
             let newInfermierja = {
                 ...infermierja,
@@ -43,26 +57,34 @@ export default observer( function InfermierjaForm (){
         
     }
 
-    function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
+    function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
         const{name, value} = event.target;
         setInfermierja({...infermierja, [name]: value})
     }
-
+    */
 
     if(loadingInitial) return <LoadingComponent content='Loading infermierja...' />
 
     return(
         <Segment clearing>
-            <Form onSubmit={handleSubmit} autoComplete='off'>
-                <Form.Input placeholder='Emri' value={infermierja.emri} name='emri' onChange={handleInputChange} />
-                <Form.Input type="date" placeholder='Datelindja' value={infermierja.datelindja} name='datelindja' onChange={handleInputChange} />
-                <Form.Input placeholder='Kualifikimi' value={infermierja.kualifikimi} name='kualifikimi' onChange={handleInputChange} />
-                <Form.Input placeholder='Specializimi' value={infermierja.specializimi} name='specializimi' onChange={handleInputChange} />
-                <Form.Input placeholder='Vendbanimi' value={infermierja.vendbanimi} name='vendbanimi' onChange={handleInputChange} />
-                <Form.Input placeholder='nrKontaktues' value={infermierja.nrKontaktues} name='nrKontaktues' onChange={handleInputChange} />
-                <Button loading={loading} floated='right' positive type ='submit' content='Submit'/>
-                <Button as={Link} to='/infermjeret' floated='right' type ='button' content='Cancel'/>
-            </Form>
+            <Formik
+                validationSchema ={validationSchema}
+                enableReinitialize 
+                initialValues={infermierja} 
+                onSubmit={values => console.log(values)}>
+                {({handleSubmit}) => (
+                <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
+                    <MyTextInput name ='emri' placeholder='Emri' /> 
+                    <MyTextInput placeholder='Datelindja' name='datelindja'/>
+                    <MyTextInput placeholder='Kualifikimi' name='kualifikimi'/>
+                    <MySelectInput options={specializimiOptions} placeholder='Specializimi' name='specializimi'/>
+                    <MyTextInput placeholder='Vendbanimi' name='vendbanimi'/>
+                    <MyTextInput placeholder='nrKontaktues' name='nrKontaktues'/>
+                    <Button loading={loading} floated='right' positive type ='submit' content='Submit'/>
+                    <Button as={Link} to='/infermjeret' floated='right' type ='button' content='Cancel'/>
+                </Form>
+                )}
+            </Formik>
         </Segment>
     )
 })

@@ -7,7 +7,7 @@ export default class InfermierjaStore{
     selectedInfermierja: Infermierja | undefined = undefined;
     editMode = false;
     loading = false;
-    loadingInitial = true;
+    loadingInitial = false;
 
     constructor(){
         makeAutoObservable(this)
