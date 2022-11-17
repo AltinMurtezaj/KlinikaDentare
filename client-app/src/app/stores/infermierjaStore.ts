@@ -1,6 +1,7 @@
 import {makeAutoObservable, runInAction} from "mobx"
 import agent from "../api/agent";
 import { Infermierja } from "../layout/models/infermierja";
+import {format} from 'date-fns';
 
 export default class InfermierjaStore{
     infermierjaRegistry = new Map<string, Infermierja>();
@@ -15,13 +16,13 @@ export default class InfermierjaStore{
 
     get infermjeretByDate(){
         return Array.from(this.infermierjaRegistry.values()).sort((a, b) =>
-         Date.parse(a.datelindja) - Date.parse(b.datelindja));
+            a.datelindja!.getTime() - b.datelindja!.getTime());
     }
 
     get grouperInfermjeret (){
         return Object.entries(
             this.infermjeretByDate.reduce((infermjeret, infermierja) =>{
-                const datelindja = infermierja.datelindja;
+                const datelindja = format(infermierja.datelindja!, 'dd MMM yyyy');
                 infermjeret[datelindja] = infermjeret[datelindja] ? [...infermjeret[datelindja], infermierja] : [infermierja];
                 return infermjeret;
             }, {} as {[key: string]: Infermierja[]})
@@ -63,7 +64,7 @@ export default class InfermierjaStore{
         }
     }
     private setInfermierja = (infermierja: Infermierja) => {
-        infermierja.datelindja = infermierja.datelindja.split('T')[0];
+        infermierja.datelindja = new Date(infermierja.datelindja!);
         this.infermierjaRegistry.set(infermierja.id, infermierja);
     }
 

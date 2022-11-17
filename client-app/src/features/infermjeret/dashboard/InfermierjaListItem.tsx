@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Item, Segment } from 'semantic-ui-react';
 import { Infermierja } from '../../../app/layout/models/infermierja';
-
+import {format} from 'date-fns';
 interface Props {
     infermierja: Infermierja
 }
@@ -26,7 +26,7 @@ export default function InfermierjaListItem({infermierja}: Props){
             </Segment>
             <Segment>
                 <span>
-                    <Icon name ='time'/> {infermierja.datelindja}
+                    <Icon name ='time'/> {format (infermierja.datelindja!, 'dd MMM yyyy h:mm aa')}
                     <Icon name ='marker'/> {infermierja.specializimi}
                 </span>
             </Segment>

@@ -5,12 +5,12 @@ import InfermierjaDashboard from '../../features/infermjeret/dashboard/Infermier
 import { observer } from 'mobx-react-lite';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import HomePage from '../../features/home/HomePage';
-import InfermierjaForm from '../../features/infermjeret/dashboard/form/InfermierjaForm';
-import InfermierjaDetails from '../../features/infermjeret/dashboard/details/InfermierjaDetails';
+import InfermierjaForm from '../../features/infermjeret/form/InfermierjaForm';
 import TestErrors from '../../features/errors/TestError';
 import {ToastContainer } from 'react-toastify';
 import NotFound from '../../features/errors/NotFound';
 import ServerError from '../../features/errors/ServerError';
+import InfermierjaDetails from '../../features/infermjeret/details/InfermierjaDetails';
 
 function App() {
   const location = useLocation();

@@ -2,7 +2,8 @@ import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
-import { Infermierja } from '../../../../app/layout/models/infermierja';
+import { Infermierja } from '../../../app/layout/models/infermierja';
+import {format} from 'date-fns';
 
 const infermierjaImageStyle = {
     filter: 'brightness(30%)'
@@ -35,7 +36,7 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                                     content={infermierja.emri}
                                     style={{color: 'white'}}
                                 />
-                                <p>{infermierja.emri}</p>
+                                <p>{format (infermierja.datelindja!, 'dd MMM yyyy')}</p>
                                 <p>
                                     Hosted by <strong>Altin & Safet</strong>
                                 </p>

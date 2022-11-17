@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import {Segment, Grid, Icon} from 'semantic-ui-react'
-import { Infermierja } from '../../../../app/layout/models/infermierja';
-
+import { Infermierja } from '../../../app/layout/models/infermierja';
+import {format} from 'date-fns';
 
 interface Props {
     infermierja: Infermierja
@@ -28,7 +28,7 @@ export default observer(function ActivityDetailedInfo({infermierja}: Props) {
                     </Grid.Column>
                     <Grid.Column width={15}>
             <span>
-              {infermierja.datelindja}
+              {format (infermierja.datelindja!, 'dd MMM yyyy h:mm aa')}
             </span>
                     </Grid.Column>
                 </Grid>
