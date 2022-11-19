@@ -9,9 +9,11 @@ using Persistence;
 using MediatR;
 using Application.Nurse;
 using System.Threading;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+    [AllowAnonymous]
     public class InfermierjaController : BaseApiController
     {
         
@@ -21,10 +23,10 @@ namespace API.Controllers
         {
             return HandleResult(await Mediator.Send(new List.Query()));
         }
-
+        
         [HttpGet("{id}")]
 
-        public async Task<IActionResult> GetInfermierja(Guid id)
+        public async Task<IActionResult> GetInfermierja(string id)
         {
             var result = await Mediator.Send(new Details.Query{Id = id});
 
@@ -40,14 +42,14 @@ namespace API.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> EditInfermierja(Guid id, Infermierja infermierja)
+        public async Task<IActionResult> EditInfermierja(string id, Infermierja infermierja)
         {
             infermierja.Id = id;
             return HandleResult(await Mediator.Send(new Edit.Command{Infermierja = infermierja}));
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteInfermierja(Guid id)
+        public async Task<IActionResult> DeleteInfermierja(string id)
         {
             return HandleResult(await Mediator.Send(new Delete.Command{Id = id}));
         }

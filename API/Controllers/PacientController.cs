@@ -38,7 +38,7 @@ namespace API.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> EditPacienti(int id, Pacienti pacienti)
+        public async Task<IActionResult> EditPacienti(string id, Pacienti pacienti)
         {
             pacienti.Id = id;
             return Ok(await Mediator.Send(new Edit.Command{Pacienti = pacienti}));

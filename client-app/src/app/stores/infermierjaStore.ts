@@ -1,6 +1,6 @@
 import {makeAutoObservable, runInAction} from "mobx"
 import agent from "../api/agent";
-import { Infermierja } from "../layout/models/infermierja";
+import { Infermierja } from "../models/infermierja";
 import {format} from 'date-fns';
 
 export default class InfermierjaStore{

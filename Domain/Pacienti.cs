@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Pacienti
+    public class Pacienti : AppUser
     {
-        public int Id {get;set;}
-        public string Emri {get;set;}
-        public string Mbiemri {get;set;}    
+        
     }
 }

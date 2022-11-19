@@ -9,9 +9,9 @@ import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
 import MySelectInput from "./MySelectInput";
-import { specializimiOptions } from "../../../app/common/form/options/specializimiOptions";
+import { specializimiOptions } from "../../../app/common/options/specializimiOptions";
 import MyDateInput from "./MyDateInput";
-import { Infermierja } from "../../../app/layout/models/infermierja";
+import { Infermierja } from "../../../app/models/infermierja";
 
 
 

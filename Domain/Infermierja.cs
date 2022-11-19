@@ -4,17 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace Domain
+namespace Domain 
 {
-    public class Infermierja
+    public class Infermierja : AppUser
     {
-        public Guid Id {get;set;}
-
-        public string Emri  {get;set;}
-        public DateTime Datelindja {get;set;}
+     
         public string Kualifikimi {get;set;}
         public string Specializimi {get;set;}
-        public string Vendbanimi {get;set;}
-        public string NrKontaktues {get;set;}
     }
 }

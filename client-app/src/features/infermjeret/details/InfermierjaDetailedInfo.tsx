@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import {Segment, Grid, Icon} from 'semantic-ui-react'
-import { Infermierja } from '../../../app/layout/models/infermierja';
+import { Infermierja } from '../../../app/models/infermierja';
 import {format} from 'date-fns';
 
 interface Props {

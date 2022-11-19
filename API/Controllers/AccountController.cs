@@ -1,53 +1,95 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using API.DTOs;
+using API.Services;
 using Domain;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
-using MediatR;
-using Application.AccountFolder;
-using System.Threading;
+using System.Security.Claims;
 
 namespace API.Controllers
 {
-    public class AccountController : BaseApiController
+    [AllowAnonymous]
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AccountController : ControllerBase
     {
-        
+        public UserManager<AppUser> _userManager { get; }
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly TokenService _tokenService;
+        public AccountController(UserManager<AppUser> userManager,
+    
+         SignInManager<AppUser> signInManager, TokenService tokenService)
+        {
+            _tokenService = tokenService;
+            _signInManager = signInManager;
+            _userManager = userManager;
+        }
 
+        [HttpPost("login")]
+
+        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
+        {
+            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+
+            if (user ==null) return Unauthorized();
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if(result.Succeeded)
+            {
+                return CreateUserObject(user);
+            }
+            return Unauthorized();
+
+        }
+        [HttpPost("register")]
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        {
+            if(await _userManager.Users.AnyAsync(x=> x.Email == registerDto.Email))
+            {
+                ModelState.AddModelError("email", "Email taken");
+                return ValidationProblem();
+            }
+            if(await _userManager.Users.AnyAsync(x=> x.UserName == registerDto.Username))
+            {
+                ModelState.AddModelError("username","Username taken");
+                return ValidationProblem();
+            }
+
+            var user = new AppUser
+            {
+                DisplayName = registerDto.DisplayName,
+                Email = registerDto.Email,
+                UserName = registerDto.Username
+            };
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+
+            if(result.Succeeded)
+            {
+                return CreateUserObject(user);
+            }
+            return BadRequest("Problem registring user");
+        }
+        [Authorize]
         [HttpGet]
-        public async Task<ActionResult<List<Account>>> GetAccount()
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
-            return await Mediator.Send(new List.Query());
+            var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
+
+            return CreateUserObject(user);
         }
 
-        [HttpGet("{id}")]
-
-        public async Task<ActionResult<Account>> GetAccount(int id)
+        private UserDto CreateUserObject(AppUser user)
         {
-            return await Mediator.Send(new Details.Query{Id = id});
-        }
-
-        [HttpPost]
-
-        public async Task<IActionResult> CreateAccount(Account account)
-        {
-            return Ok(await Mediator.Send(new Create.Command {Account = account}));
-        }
-
-        [HttpPut("{id}")]
-
-        public async Task<IActionResult> EditAccount(int id, Account account)
-        {
-            account.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Account = account}));
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAccount(int id)
-        {
-            return Ok(await Mediator.Send(new Delete.Command{Id = id}));
+            return new UserDto
+                {
+                    DisplayName = user.DisplayName,
+                    Image = null,
+                    Token = _tokenService.CreateToken(user),
+                    Username = user.UserName
+                };
         }
     }
 }

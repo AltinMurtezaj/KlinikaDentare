@@ -13,7 +13,7 @@ namespace Application.Nurse
     {
         public class Command: IRequest<Result<Unit>>
         {
-            public Guid Id { get; set; }
+            public string Id { get; set; }
 
         }
 

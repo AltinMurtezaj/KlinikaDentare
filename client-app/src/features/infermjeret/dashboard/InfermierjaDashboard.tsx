@@ -16,7 +16,7 @@ export default observer( function InfermierjaDashboard () {
      if(infermierjaRegistry.size <= 1) loadInfermjeret();
     }, [infermierjaRegistry.size, loadInfermjeret])
   
-  if(infermierjaStore.loadingInitial) return <LoadingComponent content='Loading app'/>
+  if(infermierjaStore.loadingInitial) return <LoadingComponent content='Loading infermjeret...'/>
     return (
         <Grid>
             <Grid.Column width='10'>

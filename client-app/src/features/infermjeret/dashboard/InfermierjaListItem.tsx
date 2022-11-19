@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Item, Segment } from 'semantic-ui-react';
-import { Infermierja } from '../../../app/layout/models/infermierja';
+import { Infermierja } from '../../../app/models/infermierja';
 import {format} from 'date-fns';
 interface Props {
     infermierja: Infermierja

@@ -15,7 +15,7 @@ namespace Application.Nurse
     {
         public class Query : IRequest<Result<Infermierja>>
         {
-            public Guid Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Result<Infermierja>>
