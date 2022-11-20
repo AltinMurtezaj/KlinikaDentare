@@ -17,10 +17,14 @@ export default observer(function NavBar(){
                     <img src ="assets/logo.png" alt ="logo" style={{marginRight: '10px'}}/>
                     Klinika Dentare
                 </Menu.Item>
-                <Menu.Item as={NavLink} to='/infermjeret' name ='Infermjeret' />
+                <Menu.Item as={NavLink} to='/doktoret' name ='Doctors' />
+                <Menu.Item as={NavLink} to='/infermjeret' name ='Nurses' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
                 <Menu.Item>
-                    <Button as={NavLink} to='/createInfermjeret' positive content='Create Infermierja'/>
+                    <Button as={NavLink} to='/createDoktoret' positive content='Create Doctor'/>
+                </Menu.Item>
+                <Menu.Item>
+                    <Button as={NavLink} to='/createInfermjeret' positive content='Create Nurse'/>
                 </Menu.Item>
                 <Menu.Item position='right'>
                 <Image src={user?.image || '/assets/user.png'} avatar spaced='right' />

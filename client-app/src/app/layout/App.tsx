@@ -15,6 +15,9 @@ import LoginForm from '../../features/users/LoginForm';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponents';
 import ModalContainer from '../common/modals/ModalContainer';
+import DoktoriDashboard from '../../features/doktoret/dashboard/DoktoriDashboard';
+import DoktoriDetails from '../../features/doktoret/details/DoktoriDetails';
+import DoktoriForm from '../../features/doktoret/form/DoktoriForm';
 
 function App() {
   const location = useLocation();
@@ -42,6 +45,10 @@ function App() {
         <NavBar />
         <Container style={{marginTop: '7em'}}>
           <Switch>
+            <Route exact path='/doktoret' component={DoktoriDashboard}/>\
+            <Route path='/doktoret/:id' component={DoktoriDetails}/>
+            <Route key={location.key}path={['/createDoktoret','/manage/:id']} component={DoktoriForm}/>
+            
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>

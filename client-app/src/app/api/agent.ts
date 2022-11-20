@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
+import { Doktori } from "../models/doktori";
 import { Infermierja } from "../models/infermierja";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
@@ -69,6 +70,13 @@ const Infermjeret = {
     update: (infermierja: Infermierja) => axios.put<void>(`Infermierja/${infermierja.id}`,infermierja),
     delete: (id: string) => axios.delete<void>(`Infermierja/${id}`)
 }
+const Doktoret = {
+    list: () => requests.get<Doktori[]>('Doktori'),
+    details: (id: string) => requests.get<Doktori>(`Doktori/${id}`),
+    create: (doktori: Doktori) => axios.post<void>('Doktori', doktori),
+    update: (doktori: Doktori) => axios.put<void>(`Doktori/${doktori.id}`,doktori),
+    delete: (id: string) => axios.delete<void>(`Infermierja/${id}`)
+}
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -78,7 +86,8 @@ const Account = {
 
 const agent = {
     Infermjeret,
-    Account
+    Account,
+    Doktoret
 }
 
 export default agent;
