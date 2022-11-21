@@ -24,6 +24,9 @@ import PacientiForm from '../../features/pacientet/form/PacientiForm';
 import LaborantiDashboard from '../../features/laborantet/dashboard/LaborantiDashboard';
 import LaborantiDetails from '../../features/laborantet/details/LaborantiDetails';
 import LaborantiForm from '../../features/laborantet/form/LaborantiForm';
+import TerminiDashboard from '../../features/terminet/dashboard/TerminiDashboard';
+import TerminiDetails from '../../features/terminet/details/TerminiDetails';
+import TerminiForm from '../../features/terminet/form/TerminiForm';
 
 function App() {
   const location = useLocation();
@@ -51,6 +54,10 @@ function App() {
         <NavBar />
         <Container style={{marginTop: '7em'}}>
           <Switch>
+          <Route exact path='/terminet' component={TerminiDashboard}/>\
+            <Route path='/terminet/:id' component={TerminiDetails}/>
+            <Route key={location.key}path={['/createTerminet','/manage/:id']} component={TerminiForm}/>
+            
             <Route exact path='/doktoret' component={DoktoriDashboard}/>\
             <Route path='/doktoret/:id' component={DoktoriDetails}/>
             <Route key={location.key}path={['/createDoktoret','/manage/:id']} component={DoktoriForm}/>
@@ -66,6 +73,7 @@ function App() {
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>
+            
             <Route path='/errors' component={TestErrors}/>
             <Route path='/server-error' component={ServerError}/>
             <Route path='/login' component={LoginForm}/>

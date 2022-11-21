@@ -14,7 +14,7 @@ namespace Application.TerminiFolder
     {
         public class Query : IRequest<Termini>
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Termini>

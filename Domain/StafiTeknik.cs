@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class StafiTeknik
+    public class StafiTeknik : AppUser
     {
-        public int Id {get; set;}
-        public string Emri {get; set;}
-        public string Mbiemri {get; set;}
-        public string email {get; set;}
+       
     }
 }

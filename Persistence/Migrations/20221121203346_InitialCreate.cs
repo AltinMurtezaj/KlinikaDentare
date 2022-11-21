@@ -125,44 +125,13 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Laborantet",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mbiemri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Datelindja = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Laboratori = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Laborantet", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StafiT",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mbiemri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StafiT", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "TerminiPacientit",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Orari = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Orari = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Pershkrimi = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -343,12 +312,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Farmacistet");
-
-            migrationBuilder.DropTable(
-                name: "Laborantet");
-
-            migrationBuilder.DropTable(
-                name: "StafiT");
 
             migrationBuilder.DropTable(
                 name: "TerminiPacientit");

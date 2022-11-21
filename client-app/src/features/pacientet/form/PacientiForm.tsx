@@ -8,7 +8,6 @@ import {v4 as uuid} from 'uuid';
 import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
-import MySelectInput from "./MySelectInput";
 import MyDateInput from "./MyDateInput";
 import { Pacienti } from "../../../app/models/pacienti";
 
@@ -36,6 +35,7 @@ export default observer( function PacientiForm (){
         emri: Yup.string().required('This field must need to be filled'),
         mbiemri: Yup.string().required('This field must need to be filled'),
         datelindja: Yup.string().required('This field must need to be filled').nullable(),
+        gjinia: Yup.string().required('This field must need to be filled'),
         vendbanimi: Yup.string().required('This field must need to be filled'),
         nrKontaktues: Yup.string().required('This field must need to be filled'),
     })
@@ -71,6 +71,7 @@ export default observer( function PacientiForm (){
                 {({handleSubmit, isValid, isSubmitting, dirty}) => (
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name ='emri' placeholder='Emri' /> 
+                    <MyTextInput name ='mbiemri' placeholder='Mbiemri' /> 
                     <MyDateInput
                         placeholderText='Datelindja'
                         name='datelindja'
@@ -78,6 +79,7 @@ export default observer( function PacientiForm (){
                         timeCaption='time'
                         dateFormat='MMMM d, yyyy h:mm aa'
                     />
+                    <MyTextInput placeholder='Gjinia' name='gjinia'/>
                     <Header content='Personal details' sub color='teal' />
                     <MyTextInput placeholder='Vendbanimi' name='vendbanimi'/>
                     <MyTextInput placeholder='nrKontaktues' name='nrKontaktues'/>

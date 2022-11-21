@@ -10,7 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221120212007_InitialCreate")]
+    [Migration("20221121203346_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -215,62 +215,18 @@ namespace Persistence.Migrations
                     b.ToTable("Farmacistet");
                 });
 
-            modelBuilder.Entity("Domain.Laboranti", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Datelindja")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Laboratori")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Laborantet");
-                });
-
-            modelBuilder.Entity("Domain.StafiTeknik", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StafiT");
-                });
-
             modelBuilder.Entity("Domain.Termini", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Orari")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pershkrimi")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -437,11 +393,25 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Infermierja");
                 });
 
+            modelBuilder.Entity("Domain.Laboranti", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.HasDiscriminator().HasValue("Laboranti");
+                });
+
             modelBuilder.Entity("Domain.Pacienti", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
 
                     b.HasDiscriminator().HasValue("Pacienti");
+                });
+
+            modelBuilder.Entity("Domain.StafiTeknik", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.HasDiscriminator().HasValue("StafiTeknik");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

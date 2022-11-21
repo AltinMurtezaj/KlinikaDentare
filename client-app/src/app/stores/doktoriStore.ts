@@ -98,7 +98,7 @@ export default class DoktoriStore{
     updateDoktori = async (doktori: Doktori) => {
         this.loading = true;
         try{
-            await agent.Infermjeret.update(doktori);
+            await agent.Doktoret.update(doktori);
             runInAction(() =>{
                 this.doktoriRegistry.set(doktori.id, doktori);
                 this.selectedDoktori = doktori;

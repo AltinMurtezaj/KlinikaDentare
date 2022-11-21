@@ -14,13 +14,15 @@ export default observer(function NavBar(){
         <Menu inverted fixed='top'>
             <Container>
                 <Menu.Item as={NavLink} to='/' exact header>
-                    <img src ="assets/logo.png" alt ="logo" style={{marginRight: '10px'}}/>
                     Klinika Dentare
                 </Menu.Item>
-                <Menu.Item as={NavLink} to='/doktoret' name ='Doctors' />
+                <Menu.Item as={NavLink} to='/terminet' name ='Appointments' />
                 <Menu.Item as={NavLink} to='/pacientet' name ='Pacients' />
+                <Menu.Item as={NavLink} to='/doktoret' name ='Doctors' />
                 <Menu.Item as={NavLink} to='/infermjeret' name ='Nurses' />
+                <Menu.Item as={NavLink} to='/laborantet' name ='Laborants' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
+                
                 <Menu.Item>
                     <Button as={NavLink} to='/createDoktoret' positive content='Create Doctor'/>
                 </Menu.Item>

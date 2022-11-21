@@ -12,8 +12,12 @@ namespace Application.Core
         public MappingProfiles()
         {
             CreateMap<Infermierja, Infermierja>();
-            CreateMap<Eventet, Eventet>();
-           
+            CreateMap<Doktori, Doktori>();
+            CreateMap<Termini, Termini>();
+            CreateMap<Laboranti, Laboranti>();
+            CreateMap<Infermierja, Infermierja>();
+            CreateMap<Departamenti, Departamenti>();
+            CreateMap<Pacienti, Pacienti>();     
             
         }
     }

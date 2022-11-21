@@ -15,7 +15,7 @@ export default observer( function PacientiDashboard () {
      if(pacientiRegistry.size <= 1) loadPacientet();
     }, [pacientiRegistry.size, loadPacientet])
   
-  if(pacientiStore.loadingInitial) return <LoadingComponent content='Loading infermjeret...'/>
+  if(pacientiStore.loadingInitial) return <LoadingComponent content='Loading pacientet...'/>
     return (
         <Grid>
             <Grid.Column width='10'>

@@ -10,8 +10,8 @@ export default function NotFound() {
                      Oops - we've looked everywhere and could not find this.
             </Header>
             <Segment.Inline>
-                <Button as={Link} to='/infermjeret' primary>
-                     Return to infermjeret page
+                <Button as={Link} to='/' primary>
+                     Return to HomePage
                 </Button>
             </Segment.Inline>
         </Segment>

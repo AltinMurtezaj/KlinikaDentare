@@ -7,9 +7,9 @@ namespace Domain
 {
     public class Termini
     {
-        public int Id {get;set;}
+        public string Id {get;set;}
         public string Orari {get;set;}
-
-        
+        public DateTime Data {get;set;}
+        public string Pershkrimi {get; set;} 
     }
 }

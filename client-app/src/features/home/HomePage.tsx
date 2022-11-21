@@ -19,6 +19,10 @@ export default observer(function HomePage(){
                     <>
                     <Header as='h2' inverted content='Welcome to Dental Clinic'/>
 
+                        <Button as ={Link} to='/terminet' size='huge' inverted>
+                                Go to Appointments
+                        </Button>
+
                         <Button as ={Link} to='/doktoret' size='huge' inverted>
                             Go to Doctors
                         </Button>

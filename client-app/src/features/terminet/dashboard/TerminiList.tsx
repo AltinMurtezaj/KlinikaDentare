@@ -2,23 +2,22 @@ import { observer } from "mobx-react-lite";
 import React, { Fragment } from "react";
 import { Header} from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
-import PacientiListItem from "./PacientiListItem";
+import TerminiListItem from "./TerminiListItem";
 
 
-
-export default observer(function PacientiList(){
-    const {pacientiStore} = useStore();
-    const {grouperPacientet} = pacientiStore;
+export default observer(function TerminetList(){
+    const {terminiStore} = useStore();
+    const {grouperTerminet} = terminiStore;
 
     return(
         <>
-            {grouperPacientet.map(([group, pacientet])=> (
+            {grouperTerminet.map(([group, terminet])=> (
                 <Fragment key={group}>
                     <Header sub color='teal'>
                         {group}
                     </Header>
-                    {pacientet.map(pacienti => (
-                        <PacientiListItem key= {pacienti.id} pacienti={pacienti} />
+                    {terminet.map(termini => (
+                        <TerminiListItem key= {termini.id} termini={termini} />
                     ))}
                 </Fragment>
             ))}

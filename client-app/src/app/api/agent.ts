@@ -5,6 +5,7 @@ import { Doktori } from "../models/doktori";
 import { Infermierja } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
+import { Termini } from "../models/termini";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -18,7 +19,7 @@ axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 axios.interceptors.request.use(config => {
     const token = store.commonStore.token;
-    if (token) config.headers.Authorization = `Bearer ${token}`
+    if (token) config.headers!.Authorization = `Bearer ${token}`
     return config;
 })
 
@@ -77,15 +78,15 @@ const Doktoret = {
     details: (id: string) => requests.get<Doktori>(`Doktori/${id}`),
     create: (doktori: Doktori) => axios.post<void>('Doktori', doktori),
     update: (doktori: Doktori) => axios.put<void>(`Doktori/${doktori.id}`,doktori),
-    delete: (id: string) => axios.delete<void>(`Infermierja/${id}`)
+    delete: (id: string) => axios.delete<void>(`Doktori/${id}`)
 }
 
 const Pacientet = {
-    list: () => requests.get<Pacienti[]>('Pacienti'),
-    details: (id: string) => requests.get<Pacienti>(`Pacienti/${id}`),
-    create: (pacienti: Pacienti) => axios.post<void>('Pacienti', pacienti),
-    update: (pacienti: Pacienti) => axios.put<void>(`Pacienti/${pacienti.id}`,pacienti),
-    delete: (id: string) => axios.delete<void>(`Pacienti/${id}`)
+    list: () => requests.get<Pacienti[]>('Pacient'),
+    details: (id: string) => requests.get<Pacienti>(`Pacient/${id}`),
+    create: (pacienti: Pacienti) => axios.post<void>('Pacient', pacienti),
+    update: (pacienti: Pacienti) => axios.put<void>(`Pacient/${pacienti.id}`,pacienti),
+    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
 }
 
 const Laborantet = {
@@ -96,18 +97,29 @@ const Laborantet = {
     delete: (id: string) => axios.delete<void>(`Laboranti/${id}`)
 }
 
+const Terminet = {
+    list: () => requests.get<Termini[]>('Termini'),
+    details: (id: string) => requests.get<Termini>(`Termini/${id}`),
+    create: (termini: Termini) => axios.post<void>('Termini', termini),
+    update: (termini: Termini) => axios.put<void>(`Termini/${termini.id}`,termini),
+    delete: (id: string) => axios.delete<void>(`Termini/${id}`)
+}
+
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
-    register: (user: UserFormValues) => requests.post<User>('/account/register', user)
+    register: (user: UserFormValues) => requests.post<User>('/account/register', user),
+    registerInfermierja: (user: Infermierja) => requests.post<User>('/account/register', user)
 }
 
 
 const agent = {
+    Laborantet,
     Infermjeret,
     Account,
     Doktoret,
-    Pacientet
+    Pacientet,
+    Terminet
 }
 
 export default agent;

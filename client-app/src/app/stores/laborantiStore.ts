@@ -43,10 +43,10 @@ export default class LaborantiStore{
         }
     }
     loadLaboranti = async (id:string) => {
-        let pacienti = this.getLaboranti(id);
-        if(pacienti){
-            this.selectedLaboranti = pacienti;
-            return pacienti;
+        let laboranti = this.getLaboranti(id);
+        if(laboranti){
+            this.selectedLaboranti = laboranti;
+            return laboranti;
         }else{
             this.loadingInitial =true;
             try {
@@ -56,7 +56,7 @@ export default class LaborantiStore{
                     this.selectedLaboranti = laboranti;
                 })
                 this.setLoadingInitial(false);
-                return pacienti;
+                return laboranti;
             } catch (error) {
                 console.log(error);
                 this.setLoadingInitial(false);

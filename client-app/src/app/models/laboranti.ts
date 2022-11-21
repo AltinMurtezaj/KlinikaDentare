@@ -6,4 +6,3 @@ export interface Laboranti {
     email: string;
     laboratori: string;
   }
-  
