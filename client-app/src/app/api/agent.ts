@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import { history } from "../..";
 import { Doktori } from "../models/doktori";
 import { Infermierja } from "../models/infermierja";
+import { Laboranti } from "../models/laboranti";
+import { Pacienti } from "../models/pacienti";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -77,6 +79,23 @@ const Doktoret = {
     update: (doktori: Doktori) => axios.put<void>(`Doktori/${doktori.id}`,doktori),
     delete: (id: string) => axios.delete<void>(`Infermierja/${id}`)
 }
+
+const Pacientet = {
+    list: () => requests.get<Pacienti[]>('Pacienti'),
+    details: (id: string) => requests.get<Pacienti>(`Pacienti/${id}`),
+    create: (pacienti: Pacienti) => axios.post<void>('Pacienti', pacienti),
+    update: (pacienti: Pacienti) => axios.put<void>(`Pacienti/${pacienti.id}`,pacienti),
+    delete: (id: string) => axios.delete<void>(`Pacienti/${id}`)
+}
+
+const Laborantet = {
+    list: () => requests.get<Laboranti[]>('Laboranti'),
+    details: (id: string) => requests.get<Laboranti>(`Laboranti/${id}`),
+    create: (laboranti: Laboranti) => axios.post<void>('Laboranti', laboranti),
+    update: (laboranti: Laboranti) => axios.put<void>(`Laboranti/${laboranti.id}`,laboranti),
+    delete: (id: string) => axios.delete<void>(`Laboranti/${id}`)
+}
+
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -87,7 +106,8 @@ const Account = {
 const agent = {
     Infermjeret,
     Account,
-    Doktoret
+    Doktoret,
+    Pacientet
 }
 
 export default agent;

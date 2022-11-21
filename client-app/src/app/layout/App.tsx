@@ -18,6 +18,12 @@ import ModalContainer from '../common/modals/ModalContainer';
 import DoktoriDashboard from '../../features/doktoret/dashboard/DoktoriDashboard';
 import DoktoriDetails from '../../features/doktoret/details/DoktoriDetails';
 import DoktoriForm from '../../features/doktoret/form/DoktoriForm';
+import PacientiDashboard from '../../features/pacientet/dashboard/PacientiDashboard';
+import PacientiDetails from '../../features/pacientet/details/PacientiDetails';
+import PacientiForm from '../../features/pacientet/form/PacientiForm';
+import LaborantiDashboard from '../../features/laborantet/dashboard/LaborantiDashboard';
+import LaborantiDetails from '../../features/laborantet/details/LaborantiDetails';
+import LaborantiForm from '../../features/laborantet/form/LaborantiForm';
 
 function App() {
   const location = useLocation();
@@ -48,7 +54,15 @@ function App() {
             <Route exact path='/doktoret' component={DoktoriDashboard}/>\
             <Route path='/doktoret/:id' component={DoktoriDetails}/>
             <Route key={location.key}path={['/createDoktoret','/manage/:id']} component={DoktoriForm}/>
+
+            <Route exact path='/pacientet' component={PacientiDashboard}/>\
+            <Route path='/pacientet/:id' component={PacientiDetails}/>
+            <Route key={location.key}path={['/createPacientet','/manage/:id']} component={PacientiForm}/>
             
+            <Route exact path='/laborantet' component={LaborantiDashboard}/>\
+            <Route path='/laborantet/:id' component={LaborantiDetails}/>
+            <Route key={location.key}path={['/createLaborantet','/manage/:id']} component={LaborantiForm}/>
+
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>

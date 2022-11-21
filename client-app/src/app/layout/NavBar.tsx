@@ -18,6 +18,7 @@ export default observer(function NavBar(){
                     Klinika Dentare
                 </Menu.Item>
                 <Menu.Item as={NavLink} to='/doktoret' name ='Doctors' />
+                <Menu.Item as={NavLink} to='/pacientet' name ='Pacients' />
                 <Menu.Item as={NavLink} to='/infermjeret' name ='Nurses' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
                 <Menu.Item>
@@ -26,6 +27,14 @@ export default observer(function NavBar(){
                 <Menu.Item>
                     <Button as={NavLink} to='/createInfermjeret' positive content='Create Nurse'/>
                 </Menu.Item>
+                <Menu.Item>
+                    <Button as={NavLink} to='/createPacientet' positive content='Create Pacient'/>
+                </Menu.Item>
+
+                <Menu.Item>
+                    <Button as={NavLink} to='/createLaborantet' positive content='Create Laborants'/>
+                </Menu.Item>
+
                 <Menu.Item position='right'>
                 <Image src={user?.image || '/assets/user.png'} avatar spaced='right' />
                     <Dropdown pointing='top left' text={user?.displayName}>

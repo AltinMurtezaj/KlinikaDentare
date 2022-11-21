@@ -5978,19 +5978,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Safet\\.nuget\\packages\\": {}
+    "C:\\Users\\PULSE Electronics\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Safet\\Desktop\\project\\KlinikaDentare\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Safet\\Desktop\\project\\KlinikaDentare\\api\\API.csproj",
-      "packagesPath": "C:\\Users\\Safet\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Safet\\Desktop\\project\\KlinikaDentare\\api\\obj\\",
+      "projectPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\api\\API.csproj",
+      "packagesPath": "C:\\Users\\PULSE Electronics\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Safet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PULSE Electronics\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5998,14 +5998,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/curated-feeds/microsoftdotnet/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Safet\\Desktop\\project\\KlinikaDentare\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Safet\\Desktop\\project\\KlinikaDentare\\Application\\Application.csproj"
+            "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\PULSE Electronics\\source\\repos\\KlinikaDentare\\Application\\Application.csproj"
             }
           }
         }

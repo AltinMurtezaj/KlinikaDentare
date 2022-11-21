@@ -2,13 +2,17 @@ import { createContext, useContext } from "react";
 import CommonStore from "./commonStore";
 import DoktoriStore from "./doktoriStore";
 import InfermierjaStore from "./infermierjaStore";
+import LaborantiStore from "./laborantiStore";
 import ModalStore from "./modalStore";
+import PacientiStore from "./pacientiStore";
 import UserStore from "./userStore";
 
 
 interface Store{
     infermierjaStore: InfermierjaStore;
     doktoriStore: DoktoriStore;
+    pacientiStore: PacientiStore;
+    laborantiStore: LaborantiStore;
     commonStore: CommonStore;
     userStore: UserStore;
     modalStore: ModalStore;
@@ -17,6 +21,8 @@ interface Store{
 export const store: Store = {
     infermierjaStore: new InfermierjaStore(),
     doktoriStore: new DoktoriStore(),
+    pacientiStore: new PacientiStore(),
+    laborantiStore: new LaborantiStore(),
     commonStore: new CommonStore(),
     userStore: new UserStore(),
     modalStore: new ModalStore()
