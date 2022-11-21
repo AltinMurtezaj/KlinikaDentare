@@ -6,20 +6,30 @@ using System.Threading.Tasks;
 
 namespace API.DTOs
 {
-    public class RegisterDto
+    public class AdminRegisterDTO
     {
+    
         [Required]
-        public string DisplayName { get; set; }
-
+        public string Emri { get; set; }
+        [Required]
+        public string Mbiemri { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string Datelindja { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }  
-
         [Required] 
         [RegularExpression("(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$", ErrorMessage ="Password must be complex")]
         public string Password { get; set; }
-
         [Required]
-        public string Username { get; set; }
+        public string NrKontaktues { get; set; }
+        [Required]
+        public string Gjinia { get; set; }
+        [Required]
+        public string Vendbanimi { get; set; }
+        
+       
     }
 }

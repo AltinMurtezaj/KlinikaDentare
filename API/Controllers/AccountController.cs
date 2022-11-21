@@ -45,30 +45,31 @@ namespace API.Controllers
 
         }
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        public async Task<ActionResult<UserDto>> Register(AdminRegisterDTO registerDto)
         {
             if(await _userManager.Users.AnyAsync(x=> x.Email == registerDto.Email))
             {
                 ModelState.AddModelError("email", "Email taken");
-                return ValidationProblem();
+                return ValidationProblem(ModelState);
             }
-            if(await _userManager.Users.AnyAsync(x=> x.UserName == registerDto.Username))
+            
+            var user = new Admin
             {
-                ModelState.AddModelError("username","Username taken");
-                return ValidationProblem();
-            }
-
-            var user = new AppUser
-            {
-                DisplayName = registerDto.DisplayName,
-                Email = registerDto.Email,
-                UserName = registerDto.Username
+                
+                    Emri = registerDto.Emri,  
+                    Mbiemri = registerDto.Mbiemri,
+                    UserName = registerDto.UserName,
+                    Email = registerDto.Email,
+                    Datelindja = registerDto.Datelindja,
+                    NrKontaktues = registerDto.NrKontaktues,
+                    Gjinia = registerDto.Gjinia,
+                    Vendbanimi = registerDto.Vendbanimi 
             };
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if(result.Succeeded)
             {
-                return CreateUserObject(user);
+                return Ok("Admini u shtua me sukses");
             }
             return BadRequest("Problem registring user");
         }
@@ -84,12 +85,18 @@ namespace API.Controllers
         private UserDto CreateUserObject(AppUser user)
         {
             return new UserDto
-                {
-                    DisplayName = user.DisplayName,
+                {   
+                    Id = user.Id,
+                    Emri = user.Emri,  
+                    Mbiemri = user.Mbiemri,
+                    UserName = user.UserName,
                     Email = user.Email,
-                    Image = null,
+                    Datelindja = user.Datelindja,
+                    NrKontaktues = user.NrKontaktues,
+                    Gjinia = user.Gjinia,
+                    Vendbanimi = user.Vendbanimi,
                     Token = _tokenService.CreateToken(user),
-                    Username = user.UserName
+                    Discriminator = user.Discriminator 
                 };
         }
     }

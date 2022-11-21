@@ -6,5 +6,10 @@ export interface Doktori {
     specializimi: string;
     vendbanimi: string;
     nrKontaktues: string;
+    mbiemri: string,
+    userName: string,
+    email: string,
+    password: string,
+    gjinia: string
   }
   
