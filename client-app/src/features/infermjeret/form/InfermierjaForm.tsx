@@ -30,7 +30,12 @@ export default observer( function InfermierjaForm (){
         kualifikimi: '',
         specializimi: '',
         vendbanimi: '',
-        nrKontaktues: ''
+        nrKontaktues: '',
+        mbiemri: '',
+        userName: '',
+        email: '',
+        password: '',
+        gjinia: ''
     });
 
     const validationSchema = Yup.object({

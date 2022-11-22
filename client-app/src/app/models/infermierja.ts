@@ -6,5 +6,10 @@ export interface Infermierja {
     specializimi: string;
     vendbanimi: string;
     nrKontaktues: string;
+    mbiemri: string,
+    userName: string,
+    email: string,
+    password: string,
+    gjinia: string
   }
   
