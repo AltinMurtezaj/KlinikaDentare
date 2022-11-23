@@ -17,8 +17,28 @@ export default observer(function ActivityDetailedInfo({infermierja}: Props) {
                         <Icon size='large' color='teal' name='info'/>
                     </Grid.Column>
                     <Grid.Column width={15}>
-                        <p>{infermierja.vendbanimi}</p>
+                        <p>{infermierja.emri}</p>
                     </Grid.Column>
+                    <Grid.Column width={1}>
+                        <Icon size='large' color='teal' name='info'/>
+                    </Grid.Column>
+                    <Grid.Column width={15}>
+                        <p>{infermierja.mbiemri}</p>
+                    </Grid.Column>
+                    <Grid.Column width={1}>
+                        <Icon size='large' color='teal' name='info'/>
+                    </Grid.Column>
+                    <Grid.Column width={15}>
+                        <p>{infermierja.specializimi}</p>
+                    </Grid.Column>
+                    <Grid.Column width={1}>
+                        <Icon size='large' color='teal' name='info'/>
+                    </Grid.Column>
+                    <Grid.Column width={15}>
+                        <p>{infermierja.kualifikimi}</p>
+                    </Grid.Column>
+                  
+                    
                 </Grid>
             </Segment>
             <Segment attached>

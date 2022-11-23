@@ -78,6 +78,9 @@ export default observer( function InfermierjaForm (){
                 {({handleSubmit, isValid, isSubmitting, dirty}) => (
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name ='emri' placeholder='Emri' /> 
+                    <MyTextInput name ='mbiemri' placeholder='Mbiemri' /> 
+                    <MyTextInput name ='email' placeholder='Email' /> 
+                    <MyTextInput name ='gjinia' placeholder='Gjinia' /> 
                     <MyDateInput
                         placeholderText='Datelindja'
                         name='datelindja'

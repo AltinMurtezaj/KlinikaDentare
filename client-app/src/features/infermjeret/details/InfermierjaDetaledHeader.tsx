@@ -26,7 +26,7 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/categoryImages/${infermierja.kualifikimi}.jpg`} fluid style={infermierjaImageStyle}/>
+                <Image src={`/assets/nursejpg.jpg`} fluid style={infermierjaImageStyle}/>
                 <Segment style={infermierjaImageTextStyle} basic>
                     <Item.Group>
                         <Item>
@@ -34,6 +34,8 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                                 <Header
                                     size='huge'
                                     content={infermierja.emri}
+                                    
+                                    
                                     style={{color: 'white'}}
                                 />
                                 <p>{format (infermierja.datelindja!, 'dd MMM yyyy')}</p>
@@ -46,10 +48,9 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Infermierja</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${infermierja.id}`} color='orange' floated='right'>
-                    Manage Infermierja
+                <Button color='red'>Delete Nurse</Button>
+                <Button as={Link} to={`/manage/${infermierja.id}`} color='blue' floated='right'>
+                    Edit Nurse
                 </Button>
             </Segment>
         </Segment.Group>

@@ -14,11 +14,13 @@ export default function InfermierjaListItem({infermierja}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='assets/nursejpg.jpg'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/infermjeret/${infermierja.id}`}>
-                                {infermierja.emri}
+                                {infermierja.emri} {infermierja.mbiemri}
+                                
                             </Item.Header>
+                            
                             <Item.Description>Hosted by Altin</Item.Description>
                         </Item.Content>
                     </Item>
@@ -27,14 +29,14 @@ export default function InfermierjaListItem({infermierja}: Props){
             <Segment>
                 <span>
                     <Icon name ='time'/> {format (infermierja.datelindja!, 'dd MMM yyyy h:mm aa')}
+                    <Icon name ='marker'/> {infermierja.gjinia}
                     <Icon name ='marker'/> {infermierja.specializimi}
                 </span>
             </Segment>
-            <Segment secondary>
-                Attendees go here
-            </Segment>
+          
             <Segment clearing>
-                <span>{infermierja.kualifikimi}</span>
+                <span>{infermierja.kualifikimi} {infermierja.vendbanimi}</span> 
+                
                 <Button 
                     as={Link}
                     to={`/infermjeret/${infermierja.id}`}

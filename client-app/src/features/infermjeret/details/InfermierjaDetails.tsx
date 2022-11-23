@@ -4,7 +4,6 @@ import {  useParams } from "react-router-dom";
 import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
-import InfermierjaDetailedChat from "./InfermierjaDetailedChat";
 import InfermierjaDetailedInfo from "./InfermierjaDetailedInfo";
 import InfermierjaDetailedSidebar from "./InfermierjaDetailedSidebar";
 import InfermierjaDetailedHeader from "./InfermierjaDetaledHeader";
@@ -25,7 +24,6 @@ export default observer(function InfermierjaDetails(){
         <Grid.Column width={10}>
           <InfermierjaDetailedHeader infermierja={infermierja}/>
           <InfermierjaDetailedInfo infermierja={infermierja}/>
-          <InfermierjaDetailedChat />
         </Grid.Column>
         <Grid.Column width={6}>
           <InfermierjaDetailedSidebar />

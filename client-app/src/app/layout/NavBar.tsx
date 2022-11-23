@@ -27,9 +27,6 @@ export default observer(function NavBar(){
                     <Button as={NavLink} to='/createDoktoret' positive content='Create Doctor'/>
                 </Menu.Item>
                 <Menu.Item>
-                    <Button as={NavLink} to='/createInfermjeret' positive content='Create Nurse'/>
-                </Menu.Item>
-                <Menu.Item>
                     <Button as={NavLink} to='/createPacientet' positive content='Create Pacient'/>
                 </Menu.Item>
 

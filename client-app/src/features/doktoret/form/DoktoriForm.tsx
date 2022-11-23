@@ -26,7 +26,12 @@ export default observer( function DoktoriForm (){
     const [doktori, setDoktori] = useState<Doktori>({
         id: '',
         emri: '',
+        mbiemri:'',
+        userName:'',
+        email:'',
+        password:'',
         datelindja: null,
+        gjinia:'',
         kualifikimi: '',
         specializimi: '',
         vendbanimi: '',
