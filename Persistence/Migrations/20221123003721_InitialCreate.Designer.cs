@@ -10,7 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221121203346_InitialCreate")]
+    [Migration("20221123003721_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,9 +59,6 @@ namespace Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -71,9 +68,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisplayName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -407,11 +401,11 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Pacienti");
                 });
 
-            modelBuilder.Entity("Domain.StafiTeknik", b =>
+            modelBuilder.Entity("Domain.Pastruesi", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
 
-                    b.HasDiscriminator().HasValue("StafiTeknik");
+                    b.HasDiscriminator().HasValue("Pastruesi");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

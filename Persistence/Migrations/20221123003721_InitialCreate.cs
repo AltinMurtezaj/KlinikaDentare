@@ -49,8 +49,6 @@ namespace Persistence.Migrations
                     Datelindja = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NrKontaktues = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gjinia = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vendbanimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),

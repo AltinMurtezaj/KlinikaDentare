@@ -5,6 +5,7 @@ import { Doktori } from "../models/doktori";
 import { Infermierja } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
+import { Pastruesi } from "../models/pastruesi";
 import { Termini } from "../models/termini";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
@@ -105,6 +106,14 @@ const Terminet = {
     delete: (id: string) => axios.delete<void>(`Termini/${id}`)
 }
 
+const Pastrueset = {
+    list: () => requests.get<Pastruesi[]>('Pastruesi'),
+    details: (id: string) => requests.get<Pastruesi>(`Pastruesi/${id}`),
+    create: (pastruesi: Pastruesi) => axios.post<void>('Pastruesi', pastruesi),
+    update: (pastruesi: Pastruesi) => axios.put<void>(`Pastruesi/${pastruesi.id}`,pastruesi),
+    delete: (id: string) => axios.delete<void>(`Pastruesi/${id}`)
+}
+
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -113,13 +122,16 @@ const Account = {
 }
 
 
+
+
 const agent = {
     Laborantet,
     Infermjeret,
     Account,
     Doktoret,
     Pacientet,
-    Terminet
+    Terminet,
+    Pastrueset
 }
 
 export default agent;

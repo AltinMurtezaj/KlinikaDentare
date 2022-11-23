@@ -5,6 +5,7 @@ import InfermierjaStore from "./infermierjaStore";
 import LaborantiStore from "./laborantiStore";
 import ModalStore from "./modalStore";
 import PacientiStore from "./pacientiStore";
+import PastruesiStore from "./pastruesiStore";
 import TerminiStore from "./terminiStore";
 import UserStore from "./userStore";
 
@@ -18,6 +19,7 @@ interface Store{
     userStore: UserStore;
     modalStore: ModalStore;
     terminiStore: TerminiStore;
+    pastruesiStore: PastruesiStore;
 }
 
 export const store: Store = {
@@ -28,7 +30,8 @@ export const store: Store = {
     commonStore: new CommonStore(),
     userStore: new UserStore(),
     modalStore: new ModalStore(),
-    terminiStore: new TerminiStore()
+    terminiStore: new TerminiStore(),
+    pastruesiStore: new PastruesiStore()
 }
 
 export const StoreContext = createContext(store);

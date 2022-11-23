@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Stafi
+namespace Application.Pastrues
 {
     public class List
     {
-        public class Query : IRequest<List<StafiTeknik>>{}
+        public class Query : IRequest<List<Pastruesi>>{}
 
-        public class Handler : IRequestHandler<Query, List<StafiTeknik>>
+        public class Handler : IRequestHandler<Query, List<Pastruesi>>
         {
 
             private readonly DataContext _context;
@@ -24,9 +24,9 @@ namespace Application.Stafi
             {
                     _context = context;
             }
-            public async Task<List<StafiTeknik>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<Pastruesi>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.StafiT.ToListAsync(cancellationToken);
+                return await _context.Pastruset.ToListAsync(cancellationToken);
             }
             
         }
