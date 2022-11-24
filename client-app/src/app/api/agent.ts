@@ -6,6 +6,7 @@ import { Infermierja } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
 import { Pastruesi } from "../models/pastruesi";
+import { Terapisti } from "../models/terapisti";
 import { Termini } from "../models/termini";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
@@ -121,6 +122,22 @@ const Account = {
     registerInfermierja: (user: Infermierja) => requests.post<User>('/account/register', user)
 }
 
+const Terapistet = {
+    list: () => requests.get<Terapisti[]>('Terapist'),
+    details: (id: string) => requests.get<Terapisti>(`Terapist/${id}`),
+    create: (terapisti: Terapisti) => axios.post<void>('Terapist', terapisti),
+    update: (terapisti: Terapisti) => axios.put<void>(`Terapist/${terapisti.id}`,terapisti),
+    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
+}
+
+const Accountants = {
+    list: () => requests.get<Pacienti[]>('Pacient'),
+    details: (id: string) => requests.get<Pacienti>(`Pacient/${id}`),
+    create: (pacienti: Pacienti) => axios.post<void>('Pacient', pacienti),
+    update: (pacienti: Pacienti) => axios.put<void>(`Pacient/${pacienti.id}`,pacienti),
+    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
+}
+
 
 
 
@@ -131,7 +148,9 @@ const agent = {
     Doktoret,
     Pacientet,
     Terminet,
-    Pastrueset
+    Pastrueset,
+    Terapistet,
+    Accountants
 }
 
 export default agent;

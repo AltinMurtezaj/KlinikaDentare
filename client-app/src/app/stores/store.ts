@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import AccountantStore from "./accountantStore";
 import CommonStore from "./commonStore";
 import DoktoriStore from "./doktoriStore";
 import InfermierjaStore from "./infermierjaStore";
@@ -6,6 +7,7 @@ import LaborantiStore from "./laborantiStore";
 import ModalStore from "./modalStore";
 import PacientiStore from "./pacientiStore";
 import PastruesiStore from "./pastruesiStore";
+import TerapistiStore from "./terapistiStore";
 import TerminiStore from "./terminiStore";
 import UserStore from "./userStore";
 
@@ -20,6 +22,8 @@ interface Store{
     modalStore: ModalStore;
     terminiStore: TerminiStore;
     pastruesiStore: PastruesiStore;
+    terapistiStore: TerapistiStore;
+    accountantStore: AccountantStore;
 }
 
 export const store: Store = {
@@ -31,7 +35,9 @@ export const store: Store = {
     userStore: new UserStore(),
     modalStore: new ModalStore(),
     terminiStore: new TerminiStore(),
-    pastruesiStore: new PastruesiStore()
+    pastruesiStore: new PastruesiStore(),
+    terapistiStore: new TerapistiStore(),
+    accountantStore: new AccountantStore()
 }
 
 export const StoreContext = createContext(store);

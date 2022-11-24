@@ -21,6 +21,7 @@ public class DataContext : IdentityDbContext<AppUser>
         public DbSet<Laboranti> Laborantet {get; set;}
         public DbSet<Farmacisti> Farmacistet {get; set;}
         public DbSet<Pastruesi> Pastruset {get; set;}
+        public DbSet<Terapisti> Terapistet {get; set;}
     }
 
 

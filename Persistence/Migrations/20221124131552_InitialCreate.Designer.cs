@@ -10,7 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221123003721_InitialCreate")]
+    [Migration("20221124131552_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -406,6 +406,13 @@ namespace Persistence.Migrations
                     b.HasBaseType("Domain.AppUser");
 
                     b.HasDiscriminator().HasValue("Pastruesi");
+                });
+
+            modelBuilder.Entity("Domain.Terapisti", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.HasDiscriminator().HasValue("Terapisti");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
