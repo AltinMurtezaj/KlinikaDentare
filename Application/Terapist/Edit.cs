@@ -8,13 +8,13 @@ using MediatR;
 using System.Threading;
 using Persistence;
 
-namespace Application.Stafi
+namespace Application.Terapist
 {
     public class Edit
     {
         public class Command : IRequest
         {
-            public StafiTeknik StafiTeknik { get; set; }
+            public Terapisti Terapisti { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -29,9 +29,9 @@ namespace Application.Stafi
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var stafiteknik = await _context.StafiT.FindAsync(request.StafiTeknik.Id);
+                var terapisti = await _context.Terapistet.FindAsync(request.Terapisti.Id);
 
-                _mapper.Map(request.StafiTeknik, stafiteknik);
+                _mapper.Map(request.Terapisti, terapisti);
 
                 await _context.SaveChangesAsync();
 

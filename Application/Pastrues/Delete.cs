@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Persistence;
 
-namespace Application.Stafi
+namespace Application.Pastrues
 {
     public class Delete
     {
@@ -27,9 +27,9 @@ namespace Application.Stafi
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var stafiteknik = await _context.StafiT.FindAsync(request.Id);
+                var pastruesi = await _context.Pastruset.FindAsync(request.Id);
 
-                _context.Remove(stafiteknik);
+                _context.Remove(pastruesi);
 
                 await _context.SaveChangesAsync();
 

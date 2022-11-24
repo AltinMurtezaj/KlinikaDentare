@@ -6,6 +6,8 @@ import { Doktori } from "../models/doktori";
 import { Infermierja, infermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
+import { Pastruesi } from "../models/pastruesi";
+import { Terapisti } from "../models/terapisti";
 import { Termini } from "../models/termini";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
@@ -106,6 +108,14 @@ const Terminet = {
     delete: (id: string) => axios.delete<void>(`Termini/${id}`)
 }
 
+const Pastrueset = {
+    list: () => requests.get<Pastruesi[]>('Pastruesi'),
+    details: (id: string) => requests.get<Pastruesi>(`Pastruesi/${id}`),
+    create: (pastruesi: Pastruesi) => axios.post<void>('Pastruesi', pastruesi),
+    update: (pastruesi: Pastruesi) => axios.put<void>(`Pastruesi/${pastruesi.id}`,pastruesi),
+    delete: (id: string) => axios.delete<void>(`Pastruesi/${id}`)
+}
+
 const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -116,6 +126,24 @@ const AccountInfermierja = {
     register : (user:infermierjaFormValues)=> requests.post<infermierjaFormValues>('AccountInfermierja/register', user),
 }
 
+const Terapistet = {
+    list: () => requests.get<Terapisti[]>('Terapist'),
+    details: (id: string) => requests.get<Terapisti>(`Terapist/${id}`),
+    create: (terapisti: Terapisti) => axios.post<void>('Terapist', terapisti),
+    update: (terapisti: Terapisti) => axios.put<void>(`Terapist/${terapisti.id}`,terapisti),
+    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
+}
+
+const Accountants = {
+    list: () => requests.get<Pacienti[]>('Pacient'),
+    details: (id: string) => requests.get<Pacienti>(`Pacient/${id}`),
+    create: (pacienti: Pacienti) => axios.post<void>('Pacient', pacienti),
+    update: (pacienti: Pacienti) => axios.put<void>(`Pacient/${pacienti.id}`,pacienti),
+    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
+}
+
+
+
 
 const agent = {
     AccountInfermierja,
@@ -124,7 +152,10 @@ const agent = {
     Account,
     Doktoret,
     Pacientet,
-    Terminet
+    Terminet,
+    Pastrueset,
+    Terapistet,
+    Accountants
 }
 
 export default agent;

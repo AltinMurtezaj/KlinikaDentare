@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class StafiTeknik : AppUser
+    public class Terapisti : AppUser
     {
-       
+        
     }
 }

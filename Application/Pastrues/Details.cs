@@ -8,25 +8,25 @@ using MediatR;
 using Persistence;
 
 
-namespace Application.Stafi
+namespace Application.Pastrues
 {
     public class Details
     {
-        public class Query : IRequest<StafiTeknik>
+        public class Query : IRequest<Pastruesi>
         {
             public int Id { get; set; }
         }
 
-        public class Handler : IRequestHandler<Query, StafiTeknik>
+        public class Handler : IRequestHandler<Query, Pastruesi>
         {
             private readonly DataContext _context;
             public Handler(DataContext context)
             {
                 _context = context;
             }
-            public async Task<StafiTeknik> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Pastruesi> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.StafiT.FindAsync(request.Id);
+                return await _context.Pastruset.FindAsync(request.Id);
             }
 
         }

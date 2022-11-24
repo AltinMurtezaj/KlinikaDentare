@@ -20,7 +20,8 @@ public class DataContext : IdentityDbContext<AppUser>
         public DbSet<Eventet> EventiKlinikes {get; set;}
         public DbSet<Laboranti> Laborantet {get; set;}
         public DbSet<Farmacisti> Farmacistet {get; set;}
-        public DbSet<StafiTeknik> StafiT {get; set;}
+        public DbSet<Pastruesi> Pastruset {get; set;}
+        public DbSet<Terapisti> Terapistet {get; set;}
     }
 
 
