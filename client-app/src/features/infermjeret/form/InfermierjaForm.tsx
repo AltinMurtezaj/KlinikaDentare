@@ -35,7 +35,8 @@ export default observer( function InfermierjaForm (){
         userName: '',
         email: '',
         password: '',
-        gjinia: ''
+        gjinia: '',
+        token:''
     });
 
     const validationSchema = Yup.object({
@@ -51,7 +52,8 @@ export default observer( function InfermierjaForm (){
         if (id) loadInfermierja(id).then(infermierja => setInfermierja(infermierja!))
     }, [id, loadInfermierja]);
 
-    function handleFormSubmit(infermierja: Infermierja){
+    function handleFormSubmit(infermierja: Infermierja)
+   {
         if(infermierja.id.length === 0){
             let newInfermierja = {
                 ...infermierja,
@@ -59,10 +61,9 @@ export default observer( function InfermierjaForm (){
             };
             createInfermierja(newInfermierja).then(() => history.push(`/infermjeret/${newInfermierja.id}`))
             }else{
-                updateInfermierja(infermierja).then(() => history.push(`/infermjeret/${infermierja.id}`))
-            }
-        
+                updateInfermierja(infermierja).then(() => history.push(`/infermjeret/${infermierja.id}`))  
     }
+}
     
 
     if(loadingInitial) return <LoadingComponent content='Loading infermierja...' />
@@ -84,9 +85,7 @@ export default observer( function InfermierjaForm (){
                     <MyDateInput
                         placeholderText='Datelindja'
                         name='datelindja'
-                        showTimeSelect
-                        timeCaption='time'
-                        dateFormat='MMMM d, yyyy h:mm aa'
+                        dateFormat='MMMM d, yyyy'
                     />
                     <Header content='Personal details' sub color='teal' />
                     <MyTextInput placeholder='Kualifikimi' name='kualifikimi'/>
@@ -97,7 +96,7 @@ export default observer( function InfermierjaForm (){
                         disabled ={isSubmitting || !dirty || !isValid}
                         loading={loading} floated='right'
                         positive type ='submit' content='Submit'/>
-                    <Button as={Link} to='/infermjeret' floated='right' type ='button' content='Cancel'/>
+                    <Button as={Link} to='/infermierja' floated='right' type ='button' content='Cancel'/>
                 </Form>
                 )}
             </Formik>

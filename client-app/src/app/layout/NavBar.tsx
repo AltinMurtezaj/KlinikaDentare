@@ -22,23 +22,10 @@ export default observer(function NavBar(){
                 <Menu.Item as={NavLink} to='/infermjeret' name ='Nurses' />
                 <Menu.Item as={NavLink} to='/laborantet' name ='Laborants' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
-                
-                <Menu.Item>
-                    <Button as={NavLink} to='/createDoktoret' positive content='Create Doctor'/>
-                </Menu.Item>
-                <Menu.Item>
-                    <Button as={NavLink} to='/createPacientet' positive content='Create Pacient'/>
-                </Menu.Item>
-
-                <Menu.Item>
-                    <Button as={NavLink} to='/createLaborantet' positive content='Create Laborants'/>
-                </Menu.Item>
-
                 <Menu.Item position='right'>
-                <Image src={user?.image || '/assets/user.png'} avatar spaced='right' />
-                    <Dropdown pointing='top left' text={user?.displayName}>
+                    <Dropdown pointing='top left' text={user?.userName}>
                         <Dropdown.Menu>
-                        <Dropdown.Item as={Link} to={`/profile${user?.username}`} text='My profile' icon='user'/>
+                        <Dropdown.Item as={Link} to={`/profile${user?.userName}`} text='My profile' icon='user'/>
                         <Dropdown.Item onClick={logout} text='Logout' icon='power'/>
                         </Dropdown.Menu>
                     </Dropdown>

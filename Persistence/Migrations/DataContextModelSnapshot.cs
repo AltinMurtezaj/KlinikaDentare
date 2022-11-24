@@ -57,9 +57,6 @@ namespace Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -69,9 +66,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisplayName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")

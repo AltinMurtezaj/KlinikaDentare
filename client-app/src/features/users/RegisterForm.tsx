@@ -6,6 +6,8 @@ import MyTextInput from "../../app/common/form/MyTextInput";
 import { useStore } from "../../app/stores/store";
 import * as Yup from 'yup';
 import ValidationErrors from "../errors/ValidationErrors";
+import { gjiniaOption } from "../../app/common/options/gjiniaOptions";
+import MySelectInput from "../infermjeret/form/MySelectInput";
 
 export default observer(function RegisterForm(){
     const{userStore} = useStore();
@@ -27,7 +29,13 @@ export default observer(function RegisterForm(){
                 <Form className="ui form error" onSubmit={handleSubmit} autoComplete='off'>
                     <Header as='h2' content='Sign up to Dental+' color="teal" textAlign="center"/>
                     <MyTextInput name='displayName' placeholder="Display Name"/>
+                    <MyTextInput name='emri' placeholder="Name"/>
+                    <MyTextInput name='mbiemri' placeholder="Surname"/>
                     <MyTextInput name='username' placeholder="Username"/>
+                    <MySelectInput name='gjinia'options={gjiniaOption} placeholder="Gender"/>
+                    <MyTextInput name='datelindja' placeholder="Date of birth"/>
+                    <MyTextInput name='vendbanimi' placeholder="Place of birth"/>
+                    <MyTextInput name='nrKontaktues' placeholder="Phone"/>
                     <MyTextInput name='email' placeholder="Email"/>
                     <MyTextInput name='password' placeholder="Password" type='password'/>
                     <ErrorMessage

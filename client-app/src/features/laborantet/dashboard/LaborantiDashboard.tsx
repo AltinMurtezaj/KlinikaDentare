@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-import { Grid, List } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
+import { Button, Grid, List } from 'semantic-ui-react';
 import LoadingComponent from '../../../app/layout/LoadingComponents';
 import { useStore } from '../../../app/stores/store';
-import LaborantiFilters from './LaborantiFilters';
+
 import LaborantiList from './LaborantiList';
 
 export default observer( function LaborantiDashboard () {
@@ -22,7 +23,7 @@ export default observer( function LaborantiDashboard () {
                 <LaborantiList />
             </Grid.Column>
             <Grid.Column width ='6'>
-                <LaborantiFilters />
+            <Button as={NavLink} to='/createLaborantet' positive content='Create Laborants'/>
             </Grid.Column>
         </Grid>
     )

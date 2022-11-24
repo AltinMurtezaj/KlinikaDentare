@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-import { Grid, List } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
+import { Button, Grid, List } from 'semantic-ui-react';
 import LoadingComponent from '../../../app/layout/LoadingComponents';
 import { useStore } from '../../../app/stores/store';
 import DoktoriFilters from './DoktoriFilters';
@@ -25,7 +26,7 @@ export default observer( function DoktoriDashboard () {
                 <DoktoriList />
             </Grid.Column>
             <Grid.Column width ='6'>
-                <DoktoriFilters />
+            <Button as={NavLink} to='/createDoktoret' positive content='Create Doctor'/>
             </Grid.Column>
         </Grid>
     )

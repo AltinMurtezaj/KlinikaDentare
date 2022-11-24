@@ -75,8 +75,6 @@ export default class InfermierjaStore{
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
     }
-
-
     createInfermierja = async (infermierja: Infermierja) => {
         this.loading = true;
         try {

@@ -14,8 +14,8 @@ export default observer( function InfermierjaDashboard () {
   
 
     useEffect(() => {
-     if(infermierjaRegistry.size <= 1) loadInfermjeret();
-    }, [infermierjaRegistry.size, loadInfermjeret])
+     loadInfermjeret();
+    }, [ loadInfermjeret])
   
   if(infermierjaStore.loadingInitial) return <LoadingComponent content='Loading infermjeret...'/>
     return (

@@ -1,8 +1,9 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
+import infermierjaRegisterForm from "../../features/infermjeret/form/infermierjaRegisterForm";
 import { Doktori } from "../models/doktori";
-import { Infermierja } from "../models/infermierja";
+import { Infermierja, infermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
 import { Termini } from "../models/termini";
@@ -109,11 +110,15 @@ const Account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
     register: (user: UserFormValues) => requests.post<User>('/account/register', user),
-    registerInfermierja: (user: Infermierja) => requests.post<User>('/account/register', user)
+}
+
+const AccountInfermierja = {
+    register : (user:infermierjaFormValues)=> requests.post<infermierjaFormValues>('AccountInfermierja/register', user),
 }
 
 
 const agent = {
+    AccountInfermierja,
     Laborantet,
     Infermjeret,
     Account,
