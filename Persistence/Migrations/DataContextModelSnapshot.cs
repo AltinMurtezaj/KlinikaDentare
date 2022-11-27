@@ -429,6 +429,7 @@ namespace Persistence.Migrations
                     b.HasBaseType("Domain.AppUser");
 
                     b.HasDiscriminator().HasValue("Terapisti");
+<<<<<<< HEAD
                 });
 
             modelBuilder.Entity("Domain.PacientiTermini", b =>
@@ -448,6 +449,8 @@ namespace Persistence.Migrations
                     b.Navigation("Pacienti");
 
                     b.Navigation("Termini");
+=======
+>>>>>>> 74e48c5471261da51f8141fd508690040c827167
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

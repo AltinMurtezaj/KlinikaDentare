@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Farmacisti
+    public class Farmacisti : AppUser
     {
-        public int Id{get; set;}
-        public string EmriFarmacistit {get; set;}
-        public string MbiemriFarmacistit {get; set;}
-        public string Email {get; set;}
-        public string Datelindja {get; set;}
+    
     }
 }

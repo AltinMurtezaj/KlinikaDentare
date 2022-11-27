@@ -4,8 +4,8 @@ import { Grid, List } from 'semantic-ui-react';
 import LoadingComponent from '../../../app/layout/LoadingComponents';
 import AccountantStore from '../../../app/stores/accountantStore';
 import { useStore } from '../../../app/stores/store';
+import AccountantFilters from './AccountantFilters';
 import AccountantList from './AccountantList';
-
 
 export default observer( function AccountantDashboard () {
     const {accountantStore} = useStore();

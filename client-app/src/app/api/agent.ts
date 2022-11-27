@@ -141,6 +141,14 @@ const Accountants = {
     delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
 }
 
+const Farmacistet = {
+    list: () => requests.get<Farmacisti[]>('Farmacisti'),
+    details: (id: string) => requests.get<Farmacisti>(`Farmacisti/${id}`),
+    create: (farmacisti: Farmacisti) => axios.post<void>('Farmacisti', farmacisti),
+    update: (farmacisti: Farmacisti) => axios.put<void>(`Farmacisti/${farmacisti.id}`,farmacisti),
+    delete: (id: string) => axios.delete<void>(`Farmacisti/${id}`)
+}
+
 
 
 
@@ -154,7 +162,8 @@ const agent = {
     Terminet,
     Pastrueset,
     Terapistet,
-    Accountants
+    Accountants,
+    Farmacistet
 }
 
 export default agent;

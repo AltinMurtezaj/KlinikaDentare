@@ -27,7 +27,16 @@ import LaborantiForm from '../../features/laborantet/form/LaborantiForm';
 import TerminiDashboard from '../../features/terminet/dashboard/TerminiDashboard';
 import TerminiDetails from '../../features/terminet/details/TerminiDetails';
 import TerminiForm from '../../features/terminet/form/TerminiForm';
-import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
+import infermierjaRegisterForm from '../../features/infermjeret/form/infermierjaRegisterForm';
+import FarmacistiDashboard from '../../features/farmacistet/dashboard/FarmacistiDashboard';
+import FarmacistiDetails from '../../features/farmacistet/details/FarmacistiDetails';
+import farmacistiForm from '../../features/farmacistet/form/farmacistiForm';
+import PastruesiDashboard from '../../features/pastruset/dashboard/PastruesiDashboard';
+import PastruesiDetails from '../../features/pastruset/details/PastruesiDetails';
+import PastruesiForm from '../../features/pastruset/form/PastruesiForm';
+import TerapistiDashboard from '../../features/terapistet/dashboard/TerapistiDashboard';
+import TerapistiDetails from '../../features/terapistet/details/TerapistiDetails';
+import TerapistiForm from '../../features/terapistet/form/TerapistiForm';
 
 function App() {
   const location = useLocation();
@@ -75,8 +84,22 @@ function App() {
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaRegisterForm}/>
             
+            <Route exact path='/farmacistet' component={FarmacistiDashboard}/>
+            <Route path='/farmacistet/:id' component={FarmacistiDetails}/>
+            <Route key={location.key}path={['/createFarmacistet','/manage/:id']} component={farmacistiForm}/>
+
+            <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
+            <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
+            <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>
+
+            <Route exact path='/pastruset' component={PastruesiDashboard}/>
+            <Route path='/pastruset/:id' component={PastruesiDetails}/>
+            <Route key={location.key}path={['/createPastrueset','/manage/:id']} component={PastruesiForm}/>
             
-            
+            <Route exact path='/terapistet' component={TerapistiDashboard}/>
+            <Route path='/terapistet/:id' component={TerapistiDetails}/>
+            <Route key={location.key}path={['/createTherapist','/manage/:id']} component={TerapistiForm}/>
+
             <Route path='/errors' component={TestErrors}/>
             <Route path='/server-error' component={ServerError}/>
             <Route path='/login' component={LoginForm}/>
