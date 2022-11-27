@@ -399,11 +399,18 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Pacienti");
                 });
 
-            modelBuilder.Entity("Domain.StafiTeknik", b =>
+            modelBuilder.Entity("Domain.Pastruesi", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
 
-                    b.HasDiscriminator().HasValue("StafiTeknik");
+                    b.HasDiscriminator().HasValue("Pastruesi");
+                });
+
+            modelBuilder.Entity("Domain.Terapisti", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.HasDiscriminator().HasValue("Terapisti");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

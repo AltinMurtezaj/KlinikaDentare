@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { history } from "../..";
 import infermierjaRegisterForm from "../../features/infermjeret/form/infermierjaRegisterForm";
 import { Doktori } from "../models/doktori";
+import { Farmacisti } from "../models/farmacisti";
 import { Infermierja, infermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
@@ -142,6 +143,14 @@ const Accountants = {
     delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
 }
 
+const Farmacistet = {
+    list: () => requests.get<Farmacisti[]>('Farmacisti'),
+    details: (id: string) => requests.get<Farmacisti>(`Farmacisti/${id}`),
+    create: (farmacisti: Farmacisti) => axios.post<void>('Farmacisti', farmacisti),
+    update: (farmacisti: Farmacisti) => axios.put<void>(`Farmacisti/${farmacisti.id}`,farmacisti),
+    delete: (id: string) => axios.delete<void>(`Farmacisti/${id}`)
+}
+
 
 
 
@@ -155,7 +164,8 @@ const agent = {
     Terminet,
     Pastrueset,
     Terapistet,
-    Accountants
+    Accountants,
+    Farmacistet
 }
 
 export default agent;

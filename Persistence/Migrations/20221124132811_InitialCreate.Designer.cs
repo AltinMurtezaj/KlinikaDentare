@@ -10,11 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<<< HEAD:Persistence/Migrations/20221123221820_InitialCreate.Designer.cs
-    [Migration("20221123221820_InitialCreate")]
-========
-    [Migration("20221124131552_InitialCreate")]
->>>>>>>> 26a15a8cb6f3d960aabfbecb13d038f0f519c498:Persistence/Migrations/20221124131552_InitialCreate.Designer.cs
+    [Migration("20221124132811_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

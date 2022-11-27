@@ -21,6 +21,10 @@ export default observer(function NavBar(){
                 <Menu.Item as={NavLink} to='/doktoret' name ='Doctors' />
                 <Menu.Item as={NavLink} to='/infermjeret' name ='Nurses' />
                 <Menu.Item as={NavLink} to='/laborantet' name ='Laborants' />
+                <Menu.Item as={NavLink} to='/farmacistet' name ='Pharmacists' />
+                <Menu.Item as={NavLink} to='/pastruset' name ='Cleaners' />
+                <Menu.Item as={NavLink} to='/laborantet' name ='Laborants' />
+                <Menu.Item as={NavLink} to='/terapistet' name ='Therapists' />
                 <Menu.Item as={NavLink} to='/errors' name='Errors' />
                 <Menu.Item position='right'>
                     <Dropdown pointing='top left' text={user?.userName}>

@@ -2,24 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Item, Segment } from 'semantic-ui-react';
 import {format} from 'date-fns';
-import { Pastruesi } from '../../../app/models/pastruesi';
+import { Farmacisti } from '../../../app/models/farmacisti';
 
 interface Props {
-    pastruesi: Pastruesi
+    farmacisti: Farmacisti
 }
 
-export default function pastruesiListItem({pastruesi}: Props){
+export default function FarmacistiListItem({farmacisti}: Props){
 
     return(
         <Segment.Group>
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='assets/jpg.jpg'/>
                         <Item.Content>
-                            <Item.Header as ={Link} to={`/pastrueset/${pastruesi.id}`}>
-                                {pastruesi.emri}
+                            <Item.Header as ={Link} to={`/farmacistet/${farmacisti.id}`}>
+                                {farmacisti.emri} {farmacisti.mbiemri}
+                                
                             </Item.Header>
+                            
                             <Item.Description>Hosted by Altin</Item.Description>
                         </Item.Content>
                     </Item>
@@ -27,18 +29,17 @@ export default function pastruesiListItem({pastruesi}: Props){
             </Segment>
             <Segment>
                 <span>
-                    <Icon name ='time'/> {format (pastruesi.datelindja!, 'dd MMM yyyy h:mm aa')}
-                    <Icon name ='marker'/> {pastruesi.gjinia}
+                    <Icon name ='time'/> {format (farmacisti.datelindja!, 'dd MMM yyyy h:mm aa')}
+                    <Icon name ='marker'/> {farmacisti.gjinia}
                 </span>
             </Segment>
-            <Segment secondary>
-                Attendees go here
-            </Segment>
+          
             <Segment clearing>
-                <span>{pastruesi.vendbanimi}</span>
+                <span>{farmacisti.vendbanimi} {farmacisti.vendbanimi}</span> 
+                
                 <Button 
                     as={Link}
-                    to={`/pastrueset/${pastruesi.id}`}
+                    to={`/farmacistet/${farmacisti.id}`}
                     color='teal'
                     floated='right'
                     content='View'
