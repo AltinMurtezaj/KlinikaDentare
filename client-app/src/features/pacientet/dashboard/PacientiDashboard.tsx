@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { Button, Grid, List } from 'semantic-ui-react';
 import LoadingComponent from '../../../app/layout/LoadingComponents';
 import { useStore } from '../../../app/stores/store';
-import PacientiFilters from './PacientiFilters';
 import PacientiList from './PacientiList';
 
 export default observer( function PacientiDashboard () {

@@ -10,12 +10,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<<< HEAD:Persistence/Migrations/20221123221820_InitialCreate.Designer.cs
-    [Migration("20221123221820_InitialCreate")]
-========
-    [Migration("20221124131552_InitialCreate")]
->>>>>>>> 26a15a8cb6f3d960aabfbecb13d038f0f519c498:Persistence/Migrations/20221124131552_InitialCreate.Designer.cs
-    partial class InitialCreate
+    [Migration("20221124214451_PacientiTermini")]
+    partial class PacientiTermini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -363,6 +359,21 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("PacientiTermini", b =>
+                {
+                    b.Property<string>("PacientetId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TerminetId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PacientetId", "TerminetId");
+
+                    b.HasIndex("TerminetId");
+
+                    b.ToTable("PacientiTermini");
+                });
+
             modelBuilder.Entity("Domain.Doktori", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
@@ -466,6 +477,21 @@ namespace Persistence.Migrations
                     b.HasOne("Domain.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PacientiTermini", b =>
+                {
+                    b.HasOne("Domain.Pacienti", null)
+                        .WithMany()
+                        .HasForeignKey("PacientetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Termini", null)
+                        .WithMany()
+                        .HasForeignKey("TerminetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

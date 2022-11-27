@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221124214635_remove")]
+    partial class remove
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,24 +209,6 @@ namespace Persistence.Migrations
                     b.ToTable("Farmacistet");
                 });
 
-            modelBuilder.Entity("Domain.PacientiTermini", b =>
-                {
-                    b.Property<string>("PacientiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("TerminiId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("IsHost")
-                        .HasColumnType("bit");
-
-                    b.HasKey("PacientiId", "TerminiId");
-
-                    b.HasIndex("TerminiId");
-
-                    b.ToTable("PacientiTermini");
-                });
-
             modelBuilder.Entity("Domain.Termini", b =>
                 {
                     b.Property<string>("Id")
@@ -375,6 +359,21 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("PacientiTermini", b =>
+                {
+                    b.Property<string>("PacientetId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TerminetId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PacientetId", "TerminetId");
+
+                    b.HasIndex("TerminetId");
+
+                    b.ToTable("PacientiTermini");
+                });
+
             modelBuilder.Entity("Domain.Doktori", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
@@ -431,25 +430,6 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Terapisti");
                 });
 
-            modelBuilder.Entity("Domain.PacientiTermini", b =>
-                {
-                    b.HasOne("Domain.Pacienti", "Pacienti")
-                        .WithMany("Terminet")
-                        .HasForeignKey("PacientiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Termini", "Termini")
-                        .WithMany("Pacientet")
-                        .HasForeignKey("TerminiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pacienti");
-
-                    b.Navigation("Termini");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -501,14 +481,19 @@ namespace Persistence.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Termini", b =>
+            modelBuilder.Entity("PacientiTermini", b =>
                 {
-                    b.Navigation("Pacientet");
-                });
+                    b.HasOne("Domain.Pacienti", null)
+                        .WithMany()
+                        .HasForeignKey("PacientetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("Domain.Pacienti", b =>
-                {
-                    b.Navigation("Terminet");
+                    b.HasOne("Domain.Termini", null)
+                        .WithMany()
+                        .HasForeignKey("TerminetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

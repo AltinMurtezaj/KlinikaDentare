@@ -1,9 +1,10 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import { Infermierja } from '../../../app/models/infermierja';
 import {format} from 'date-fns';
+import { useStore } from '../../../app/stores/store';
 
 const infermierjaImageStyle = {
     filter: 'brightness(30%)'
@@ -23,6 +24,14 @@ interface Props {
 }
 
 export default observer (function InfermierjaDetailedHeader({infermierja}: Props) {
+    const{infermierjaStore} = useStore();
+    const{deleteInfermierja, loading, loadInfermjeret} = infermierjaStore;
+    const[target, setTarget] =useState('');
+
+    function handleInfermierjaDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+        setTarget(e.currentTarget.name);
+        deleteInfermierja(id);
+      }
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
@@ -48,7 +57,11 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='red'>Delete Nurse</Button>
+                <Button name={infermierja.id}
+                as={Link} to={'/infermjeret'}
+                loading={loading && target === infermierja.id}
+                onClick={(e)=>handleInfermierjaDelete(e, infermierja.id)}
+                 color='red'>Delete Nurse</Button>
                 <Button as={Link} to={`/manage/${infermierja.id}`} color='blue' floated='right'>
                     Edit Nurse
                 </Button>

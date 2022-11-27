@@ -1,9 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
-import infermierjaRegisterForm from "../../features/infermjeret/form/infermierjaRegisterForm";
 import { Doktori } from "../models/doktori";
-import { Infermierja, infermierjaFormValues } from "../models/infermierja";
+import { Infermierja, InfermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";
 import { Pastruesi } from "../models/pastruesi";
@@ -123,7 +122,7 @@ const Account = {
 }
 
 const AccountInfermierja = {
-    register : (user:infermierjaFormValues)=> requests.post<infermierjaFormValues>('AccountInfermierja/register', user),
+    register : (user:InfermierjaFormValues)=> requests.post<InfermierjaFormValues>('InfermierjaAccount/register', user),
 }
 
 const Terapistet = {

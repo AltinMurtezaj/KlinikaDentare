@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain
@@ -12,6 +13,7 @@ namespace Domain
         public string Gjinia { get; set; }
         public string Vendbanimi { get; set; }
         public string Discriminator {get; set;}
+        
     }
 
 }

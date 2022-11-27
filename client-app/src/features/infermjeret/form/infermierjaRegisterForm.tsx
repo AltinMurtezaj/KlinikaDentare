@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import {  useHistory } from "react-router-dom";
+
 import { Button, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { Formik, Form, ErrorMessage } from "formik";
@@ -10,13 +10,27 @@ import { specializimiOptions } from "../../../app/common/options/specializimiOpt
 import MyDateInput from "./MyDateInput";
 import { gjiniaOption } from "../../../app/common/options/gjiniaOptions";
 import ValidationErrors from "../../errors/ValidationErrors";
+import { useHistory } from "react-router-dom";
 
 
 
-export default observer( function infermierjaRegisterForm (){
+export default observer( function InfermierjaRegisterForm (){
     const {userStore} = useStore();
-    const history = useHistory();
 
+    const validationSchema = Yup.object({
+        emri: Yup.string().required('This field must need to be filled'),
+        mbiemri: Yup.string().required('This field must need to be filled'),
+        datelindja: Yup.date().required('This field must need to be filled').nullable(),
+        kualifikimi: Yup.string().required('This field must need to be filled'),
+        specializimi: Yup.string().required('This field must need to be filled'),
+        gjinia: Yup.string().required('This field must need to be filled'),
+        vendbanimi: Yup.string().required('This field must need to be filled'),
+        nrKontaktues: Yup.number().required('This field must need to be filled'),
+        mosha: Yup.number().required('This field must need to be filled'),
+        email :Yup.string().required('This field must need to be filled').email(),
+        password :Yup.string().required('This field must need to be filled'),
+        
+    })
 
     return(
         <Formik
@@ -33,25 +47,11 @@ export default observer( function infermierjaRegisterForm (){
         password: '',
         gjinia: '',
         error:null}}
-        onSubmit={(values,{setErrors})=>userStore.registerInfermierja(values).then(()=>{
-            history.push('/infermjeret');
-        }).catch(
+        onSubmit={(values,{setErrors})=>userStore.registerInfermierja(values).
+        catch(
             error=>{setErrors({error});console.log(error);}
         )}
-    validationSchema = {Yup.object({
-        emri: Yup.string().required('This field must need to be filled'),
-        mbiemri: Yup.string().required('This field must need to be filled'),
-        datelindja: Yup.date().required('This field must need to be filled').nullable(),
-        kualifikimi: Yup.string().required('This field must need to be filled'),
-        specializimi: Yup.string().required('This field must need to be filled'),
-        gjinia: Yup.string().required('This field must need to be filled'),
-        vendbanimi: Yup.string().required('This field must need to be filled'),
-        nrKontaktues: Yup.number().required('This field must need to be filled'),
-        mosha: Yup.number().required('This field must need to be filled'),
-        email :Yup.string().required('This field must need to be filled').email(),
-        password :Yup.string().required('This field must need to be filled'),
-        
-    })}
+   
 >
 {({handleSubmit,isSubmitting,errors,isValid,dirty})=>(
     <Form className="ui form error" onSubmit={handleSubmit} autoComplete='off'>
@@ -65,7 +65,7 @@ export default observer( function infermierjaRegisterForm (){
         <MyTextInput name="vendbanimi" placeholder="Vendbanimi"/>
         <MyDateInput 
                   placeholderText='Ditelindja' 
-                  name='ditelindja'
+                  name='datelindja'
                   dateFormat='d MMMM yyyy'
              />
         <MyTextInput name="kualifikimi" placeholder="Kualifikimi"/>

@@ -4,7 +4,6 @@ import {  useParams } from "react-router-dom";
 import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
-import PastruesiDetailedChat from "./PastruesiDetailedChat";
 import PastruesiDetailedInfo from "./PastruesiDetailedInfo";
 import PastruesiDetailedSidebar from "./PastruesiDetailedSidebar";
 import PastruesiDetailedHeader from "./PastruesiDetaledHeader";
@@ -25,7 +24,6 @@ export default observer(function PastruesiDetails(){
         <Grid.Column width={10}>
           <PastruesiDetailedHeader pastruesi={pastruesi}/>
           <PastruesiDetailedInfo pastruesi={pastruesi}/>
-          <PastruesiDetailedChat />
         </Grid.Column>
         <Grid.Column width={6}>
           <PastruesiDetailedSidebar />

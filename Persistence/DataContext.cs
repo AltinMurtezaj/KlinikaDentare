@@ -2,6 +2,7 @@ using Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+
 namespace Persistence
 {
 public class DataContext : IdentityDbContext<AppUser>
@@ -22,6 +23,25 @@ public class DataContext : IdentityDbContext<AppUser>
         public DbSet<Farmacisti> Farmacistet {get; set;}
         public DbSet<Pastruesi> Pastruset {get; set;}
         public DbSet<Terapisti> Terapistet {get; set;}
+
+        public DbSet<PacientiTermini> PacientiTermini { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<PacientiTermini>(x => x.HasKey(aa => new {aa.PacientiId,aa.TerminiId}));
+
+            builder.Entity<PacientiTermini>()
+            .HasOne(u => u.Pacienti)
+            .WithMany(a => a.Terminet)
+            .HasForeignKey(aa => aa.PacientiId);
+
+            builder.Entity<PacientiTermini>()
+            .HasOne(u => u.Termini)
+            .WithMany(a => a.Pacientet)
+            .HasForeignKey(aa => aa.TerminiId);
+        }
     }
 
 

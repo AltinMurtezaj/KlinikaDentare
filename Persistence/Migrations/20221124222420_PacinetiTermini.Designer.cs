@@ -10,12 +10,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<<< HEAD:Persistence/Migrations/20221123221820_InitialCreate.Designer.cs
-    [Migration("20221123221820_InitialCreate")]
-========
-    [Migration("20221124131552_InitialCreate")]
->>>>>>>> 26a15a8cb6f3d960aabfbecb13d038f0f519c498:Persistence/Migrations/20221124131552_InitialCreate.Designer.cs
-    partial class InitialCreate
+    [Migration("20221124222420_PacinetiTermini")]
+    partial class PacinetiTermini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -211,6 +207,24 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Farmacistet");
+                });
+
+            modelBuilder.Entity("Domain.PacientiTermini", b =>
+                {
+                    b.Property<string>("PacientiId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TerminiId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsHost")
+                        .HasColumnType("bit");
+
+                    b.HasKey("PacientiId", "TerminiId");
+
+                    b.HasIndex("TerminiId");
+
+                    b.ToTable("PacientiTermini");
                 });
 
             modelBuilder.Entity("Domain.Termini", b =>
@@ -419,6 +433,25 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Terapisti");
                 });
 
+            modelBuilder.Entity("Domain.PacientiTermini", b =>
+                {
+                    b.HasOne("Domain.Pacienti", "Pacienti")
+                        .WithMany("Terminet")
+                        .HasForeignKey("PacientiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Termini", "Termini")
+                        .WithMany("Pacientet")
+                        .HasForeignKey("TerminiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pacienti");
+
+                    b.Navigation("Termini");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -468,6 +501,16 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Termini", b =>
+                {
+                    b.Navigation("Pacientet");
+                });
+
+            modelBuilder.Entity("Domain.Pacienti", b =>
+                {
+                    b.Navigation("Terminet");
                 });
 #pragma warning restore 612, 618
         }

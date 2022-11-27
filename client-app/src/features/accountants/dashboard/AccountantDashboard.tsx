@@ -5,7 +5,7 @@ import LoadingComponent from '../../../app/layout/LoadingComponents';
 import AccountantStore from '../../../app/stores/accountantStore';
 import { useStore } from '../../../app/stores/store';
 import AccountantList from './AccountantList';
-import PacientiFilters from './PacientiFilters';
+
 
 export default observer( function AccountantDashboard () {
     const {accountantStore} = useStore();
@@ -23,7 +23,7 @@ export default observer( function AccountantDashboard () {
                 <AccountantList />
             </Grid.Column>
             <Grid.Column width ='6'>
-                <PacientiFilters />
+            
             </Grid.Column>
         </Grid>
     )

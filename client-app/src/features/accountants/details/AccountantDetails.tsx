@@ -4,7 +4,6 @@ import {  useParams } from "react-router-dom";
 import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
-import AccountantDetailedChat from "./AccountantDetailedChat";
 import AccountantDetailedInfo from "./AccountantDetailedInfo";
 import AccountantDetailedSidebar from "./AccountantDetailedSidebar";
 import AccountantDetaledHeader from "./AccountantDetaledHeader";
@@ -25,7 +24,7 @@ export default observer(function AccountantDetails(){
         <Grid.Column width={10}>
           <AccountantDetaledHeader accountant={accountant}/>
           <AccountantDetailedInfo accountant={accountant}/>
-          <AccountantDetailedChat />
+          
         </Grid.Column>
         <Grid.Column width={6}>
           <AccountantDetailedSidebar />

@@ -27,7 +27,7 @@ import LaborantiForm from '../../features/laborantet/form/LaborantiForm';
 import TerminiDashboard from '../../features/terminet/dashboard/TerminiDashboard';
 import TerminiDetails from '../../features/terminet/details/TerminiDetails';
 import TerminiForm from '../../features/terminet/form/TerminiForm';
-import infermierjaRegisterForm from '../../features/infermjeret/form/infermierjaRegisterForm';
+import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
 
 function App() {
   const location = useLocation();
@@ -73,7 +73,7 @@ function App() {
 
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
-            <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>
+            <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaRegisterForm}/>
             
             
             

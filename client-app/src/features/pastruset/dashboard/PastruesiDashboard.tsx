@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Grid, List } from 'semantic-ui-react';
 import LoadingComponent from '../../../app/layout/LoadingComponents';
 import { useStore } from '../../../app/stores/store';
-import PastruesiFilters from './PastruesiFilters';
 import PastruesiList from './PastruesiList';
 
 
@@ -23,7 +22,6 @@ export default observer( function PastruesiDashboard () {
                 <PastruesiList />
             </Grid.Column>
             <Grid.Column width ='6'>
-                <PastruesiFilters />
             </Grid.Column>
         </Grid>
     )
