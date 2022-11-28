@@ -7,6 +7,8 @@ namespace Domain
 {
     public class Laboranti : AppUser
     {
-        
+        public string laboratori{get;set;}
+        public string Kualifikimi { get; set; }
+        public string Specializimi { get; set; }
     }
 }

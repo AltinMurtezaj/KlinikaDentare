@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import LaborantiDetailedInfo from "./LaborantiDetailedInfo";
-import LaborantiDetailedSidebar from "./LaborantiDetailedSidebar";
 import LaborantiDetaledHeader from "./LaborantiDetaledHeader";
 
 export default observer(function LaborantiDetails(){
@@ -27,7 +26,6 @@ export default observer(function LaborantiDetails(){
        
         </Grid.Column>
         <Grid.Column width={6}>
-          <LaborantiDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

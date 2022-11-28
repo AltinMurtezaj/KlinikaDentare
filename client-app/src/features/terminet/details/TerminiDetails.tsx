@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import TerminiDetailedInfo from "./TerminiDetailedInfo";
-import TerminiDetailedSidebar from "./TerminiDetailedSidebar";
 import TerminiDetaledHeader from "./TerminiDetaledHeader";
 
 
@@ -29,7 +28,6 @@ export default observer(function TerminiDetails(){
           
         </Grid.Column>
         <Grid.Column width={6}>
-          <TerminiDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

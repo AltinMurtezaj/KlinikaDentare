@@ -15,12 +15,11 @@ export default function LaborantiListItem({laboranti}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='/assets/labicon.png'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/laborantet/${laboranti.id}`}>
                                 {laboranti.emri}
                             </Item.Header>
-                            <Item.Description>Hosted by Altin</Item.Description>
                         </Item.Content>
                     </Item>
                 </Item.Group>
@@ -30,9 +29,6 @@ export default function LaborantiListItem({laboranti}: Props){
                     <Icon name ='time'/> {format (laboranti.datelindja!, 'dd MMM yyyy h:mm aa')}
                     <Icon name ='marker'/> {laboranti.mbiemri}
                 </span>
-            </Segment>
-            <Segment secondary>
-                Attendees go here
             </Segment>
             <Segment clearing>
                 <span>{laboranti.laboratori}</span>

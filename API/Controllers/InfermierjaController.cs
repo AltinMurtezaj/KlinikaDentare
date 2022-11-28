@@ -45,7 +45,7 @@ namespace API.Controllers
         public async Task<IActionResult> EditInfermierja(string id, Infermierja infermierja)
         {
             infermierja.Id = id;
-            return HandleResult(await Mediator.Send(new Edit.Command{Infermierja = infermierja}));
+            return Ok(await Mediator.Send(new Edit.Command{Infermierja = infermierja}));
         }
 
         [HttpDelete("{id}")]

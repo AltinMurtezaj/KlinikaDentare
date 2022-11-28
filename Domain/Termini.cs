@@ -8,6 +8,7 @@ namespace Domain
     public class Termini
     {
         public string Id {get;set;}
+        public string Emri {get; set;}
         public string Orari {get;set;}
         public DateTime Data {get;set;}
         public string Pershkrimi {get; set;} 

@@ -27,7 +27,6 @@ import LaborantiForm from '../../features/laborantet/form/LaborantiForm';
 import TerminiDashboard from '../../features/terminet/dashboard/TerminiDashboard';
 import TerminiDetails from '../../features/terminet/details/TerminiDetails';
 import TerminiForm from '../../features/terminet/form/TerminiForm';
-import infermierjaRegisterForm from '../../features/infermjeret/form/infermierjaRegisterForm';
 import FarmacistiDashboard from '../../features/farmacistet/dashboard/FarmacistiDashboard';
 import FarmacistiDetails from '../../features/farmacistet/details/FarmacistiDetails';
 import farmacistiForm from '../../features/farmacistet/form/farmacistiForm';
@@ -37,6 +36,7 @@ import PastruesiForm from '../../features/pastruset/form/PastruesiForm';
 import TerapistiDashboard from '../../features/terapistet/dashboard/TerapistiDashboard';
 import TerapistiDetails from '../../features/terapistet/details/TerapistiDetails';
 import TerapistiForm from '../../features/terapistet/form/TerapistiForm';
+import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
 
 function App() {
   const location = useLocation();
@@ -64,26 +64,27 @@ function App() {
         <NavBar />
         <Container style={{marginTop: '7em'}}>
           <Switch>
-          <Route exact path='/terminet' component={TerminiDashboard}/>\
+            <Route exact path='/terminet' component={TerminiDashboard}/>
             <Route path='/terminet/:id' component={TerminiDetails}/>
-            <Route key={location.key}path={['/createTerminet','/manage/:id']} component={TerminiForm}/>
+            <Route key={location.key}path={['/createTerminet','/manageTermini/:id']} component={TerminiForm}/>
             
             <Route exact path='/doktoret' component={DoktoriDashboard}/>\
             <Route path='/doktoret/:id' component={DoktoriDetails}/>
-            <Route key={location.key}path={['/createDoktoret','/manage/:id']} component={DoktoriForm}/>
+            <Route key={location.key}path={['/createDoktoret','/manageDoktori/:id']} component={DoktoriForm}/>
 
             <Route exact path='/pacientet' component={PacientiDashboard}/>\
             <Route path='/pacientet/:id' component={PacientiDetails}/>
-            <Route key={location.key}path={['/createPacientet','/manage/:id']} component={PacientiForm}/>
+            <Route key={location.key}path={['/createPacientet','/managePacienti/:id']} component={PacientiForm}/>
             
             <Route exact path='/laborantet' component={LaborantiDashboard}/>\
             <Route path='/laborantet/:id' component={LaborantiDetails}/>
-            <Route key={location.key}path={['/createLaborantet','/manage/:id']} component={LaborantiForm}/>
+            <Route key={location.key}path={['/createLaborantet','/manageLaboranti/:id']} component={LaborantiForm}/>
 
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
-            <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaRegisterForm}/>
-            
+            <Route key={location.key}path={['/manageInfermierja/:id']} component={InfermierjaForm}/>
+            <Route key={location.key}path={['/createInfermjeret']} component={InfermierjaRegisterForm}/>
+           
             <Route exact path='/farmacistet' component={FarmacistiDashboard}/>
             <Route path='/farmacistet/:id' component={FarmacistiDetails}/>
             <Route key={location.key}path={['/createFarmacistet','/manage/:id']} component={farmacistiForm}/>
@@ -104,6 +105,7 @@ function App() {
             <Route path='/server-error' component={ServerError}/>
             <Route path='/login' component={LoginForm}/>
             <Route component={NotFound} />
+          
           </Switch>
         </Container>
         </>

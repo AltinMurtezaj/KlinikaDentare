@@ -17,16 +17,9 @@ namespace Application.Nurse
         public class Command: IRequest<Result<Unit>>
         {
             public Infermierja Infermierja { get; set; }
-        }
+     }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-
-            public CommandValidator()
-            {
-                RuleFor(x => x.Infermierja).SetValidator(new InfermierjaValidator());
-            }
-        }
+       
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {

@@ -14,7 +14,7 @@ export default function DoktoriListItem({doktori}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='/assets/doctoricon.png'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/doktoret/${doktori.id}`}>
                                 {doktori.emri}

@@ -1,11 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import {format} from 'date-fns';
 import { Laboranti } from '../../../app/models/laboranti';
+import { useStore } from '../../../app/stores/store';
 
-const pacientiImageStyle = {
+const laborantiImageStyle = {
     filter: 'brightness(30%)'
 };
 
@@ -23,10 +24,18 @@ interface Props {
 }
 
 export default observer (function LaborantiDetailedHeader({laboranti}: Props) {
+    const{laborantiStore} = useStore();
+    const{deleteLaboranti, loading} = laborantiStore;
+    const[target, setTarget] =useState('');
+
+    function handleLaborantiDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+        setTarget(e.currentTarget.name);
+        deleteLaboranti(id);
+      }
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/categoryImages/${laboranti.emri}.jpg`} fluid style={laborantiImageTextStyle}/>
+                <Image src={`/assets/lab.jpg`} fluid style={laborantiImageStyle}/>
                 <Segment style={laborantiImageTextStyle} basic>
                     <Item.Group>
                         <Item>
@@ -37,19 +46,19 @@ export default observer (function LaborantiDetailedHeader({laboranti}: Props) {
                                     style={{color: 'white'}}
                                 />
                                 <p>{format (laboranti.datelindja!, 'dd MMM yyyy')}</p>
-                                <p>
-                                    Hosted by <strong>Altin & Safet</strong>
-                                </p>
                             </Item.Content>
                         </Item>
                     </Item.Group>
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Pacienti</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${laboranti.id}`} color='orange' floated='right'>
-                    Manage Laboranti
+            <Button name={laboranti.id}
+                as={Link} to={'/laborantet'}
+                loading={loading && target === laboranti.id}
+                onClick={(e)=>handleLaborantiDelete(e, laboranti.id)}
+                 color='red'>Delete Laboranti</Button>
+                <Button as={Link} to={`/manageLaboranti/${laboranti.id}`} color='blue' floated='right'>
+                    Edit Laboranti
                 </Button>
             </Segment>
         </Segment.Group>

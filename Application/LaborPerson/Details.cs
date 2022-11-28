@@ -14,7 +14,7 @@ namespace Application.LaborPerson
     {
         public class Query : IRequest<Laboranti>
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Laboranti>

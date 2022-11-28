@@ -14,7 +14,7 @@ namespace Application.Doctor
     {
         public class Query : IRequest<Doktori>
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Doktori>

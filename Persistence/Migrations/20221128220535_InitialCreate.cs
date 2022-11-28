@@ -55,6 +55,9 @@ namespace Persistence.Migrations
                     Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Infermierja_Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Infermierja_Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    laboratori = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Laboranti_Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Laboranti_Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -107,26 +110,11 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Farmacistet",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmriFarmacistit = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MbiemriFarmacistit = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Datelindja = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Farmacistet", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "TerminiPacientit",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Orari = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Pershkrimi = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -242,6 +230,31 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PacientiTermini",
+                columns: table => new
+                {
+                    PacientiId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TerminiId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IsHost = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PacientiTermini", x => new { x.PacientiId, x.TerminiId });
+                    table.ForeignKey(
+                        name: "FK_PacientiTermini_AspNetUsers_PacientiId",
+                        column: x => x.PacientiId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PacientiTermini_TerminiPacientit_TerminiId",
+                        column: x => x.TerminiId,
+                        principalTable: "TerminiPacientit",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -280,6 +293,11 @@ namespace Persistence.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PacientiTermini_TerminiId",
+                table: "PacientiTermini",
+                column: "TerminiId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -309,16 +327,16 @@ namespace Persistence.Migrations
                 name: "EventiKlinikes");
 
             migrationBuilder.DropTable(
-                name: "Farmacistet");
-
-            migrationBuilder.DropTable(
-                name: "TerminiPacientit");
+                name: "PacientiTermini");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "TerminiPacientit");
         }
     }
 }

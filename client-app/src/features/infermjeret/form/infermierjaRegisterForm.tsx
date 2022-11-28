@@ -16,6 +16,7 @@ import { useHistory } from "react-router-dom";
 
 export default observer( function InfermierjaRegisterForm (){
     const {userStore} = useStore();
+    const history = useHistory();
 
     const validationSchema = Yup.object({
         emri: Yup.string().required('This field must need to be filled'),
@@ -31,6 +32,7 @@ export default observer( function InfermierjaRegisterForm (){
         password :Yup.string().required('This field must need to be filled'),
         
     })
+    
 
     return(
         <Formik
@@ -47,8 +49,9 @@ export default observer( function InfermierjaRegisterForm (){
         password: '',
         gjinia: '',
         error:null}}
-        onSubmit={(values,{setErrors})=>userStore.registerInfermierja(values).
-        catch(
+        onSubmit={(values,{setErrors})=>userStore.registerInfermierja(values).then(()=>{
+            history.push('/infermjeret');
+        }).catch(
             error=>{setErrors({error});console.log(error);}
         )}
    

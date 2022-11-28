@@ -4,9 +4,7 @@ import {  useParams } from "react-router-dom";
 import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
-
 import DoktoriDetailedInfo from "./DoktoriDetailedInfo";
-import DoktoriDetailedSidebar from "./DoktoriDetailedSidebar";
 import DoktoriDetaledHeader from "./DoktoriDetaledHeader";
 
 
@@ -28,7 +26,6 @@ export default observer(function DoktoriDetails(){
           <DoktoriDetailedInfo doktori={doktori}/>
         </Grid.Column>
         <Grid.Column width={6}>
-          <DoktoriDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

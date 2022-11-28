@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import InfermierjaDetailedInfo from "./InfermierjaDetailedInfo";
-import InfermierjaDetailedSidebar from "./InfermierjaDetailedSidebar";
 import InfermierjaDetailedHeader from "./InfermierjaDetaledHeader";
 
 export default observer(function InfermierjaDetails(){
@@ -26,7 +25,6 @@ export default observer(function InfermierjaDetails(){
           <InfermierjaDetailedInfo infermierja={infermierja}/>
         </Grid.Column>
         <Grid.Column width={6}>
-          <InfermierjaDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

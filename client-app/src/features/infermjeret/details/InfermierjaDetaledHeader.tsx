@@ -48,9 +48,7 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                                     style={{color: 'white'}}
                                 />
                                 <p>{format (infermierja.datelindja!, 'dd MMM yyyy')}</p>
-                                <p>
-                                    Hosted by <strong>Altin & Safet</strong>
-                                </p>
+        
                             </Item.Content>
                         </Item>
                     </Item.Group>
@@ -62,7 +60,8 @@ export default observer (function InfermierjaDetailedHeader({infermierja}: Props
                 loading={loading && target === infermierja.id}
                 onClick={(e)=>handleInfermierjaDelete(e, infermierja.id)}
                  color='red'>Delete Nurse</Button>
-                <Button as={Link} to={`/manage/${infermierja.id}`} color='blue' floated='right'>
+
+                <Button as={Link} to={`/manageInfermierja/${infermierja.id}`} color='blue' floated='right'>
                     Edit Nurse
                 </Button>
             </Segment>

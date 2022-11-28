@@ -14,12 +14,11 @@ export default function TerminiListItem({termini}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='/assets/appointment.png'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/terminet/${termini.id}`}>
                                 {termini.emri}
                             </Item.Header>
-                            <Item.Description>Hosted by Safet</Item.Description>
                         </Item.Content>
                     </Item>
                 </Item.Group>
@@ -30,9 +29,6 @@ export default function TerminiListItem({termini}: Props){
                     <Icon name ='marker'/> {termini.orari}
                     <Icon name ='marker'/> {termini.pershkrimi}
                 </span>
-            </Segment>
-            <Segment secondary>
-                Attendees go here
             </Segment>
             <Segment clearing>
                 <Button 

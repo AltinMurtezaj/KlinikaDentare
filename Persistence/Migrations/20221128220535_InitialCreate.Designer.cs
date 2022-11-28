@@ -10,11 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<<< HEAD:Persistence/Migrations/20221124144938_InitialCreate.Designer.cs
-    [Migration("20221124144938_InitialCreate")]
-========
-    [Migration("20221124132811_InitialCreate")]
->>>>>>>> 74e48c5471261da51f8141fd508690040c827167:Persistence/Migrations/20221124132811_InitialCreate.Designer.cs
+    [Migration("20221128220535_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -189,28 +185,22 @@ namespace Persistence.Migrations
                     b.ToTable("EventiKlinikes");
                 });
 
-            modelBuilder.Entity("Domain.Farmacisti", b =>
+            modelBuilder.Entity("Domain.PacientiTermini", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("PacientiId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Datelindja")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("TerminiId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsHost")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("EmriFarmacistit")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("PacientiId", "TerminiId");
 
-                    b.Property<string>("MbiemriFarmacistit")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("TerminiId");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Farmacistet");
+                    b.ToTable("PacientiTermini");
                 });
 
             modelBuilder.Entity("Domain.Termini", b =>
@@ -220,6 +210,9 @@ namespace Persistence.Migrations
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Orari")
                         .HasColumnType("nvarchar(max)");
@@ -376,6 +369,13 @@ namespace Persistence.Migrations
                     b.HasDiscriminator().HasValue("Doktori");
                 });
 
+            modelBuilder.Entity("Domain.Farmacisti", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.HasDiscriminator().HasValue("Farmacisti");
+                });
+
             modelBuilder.Entity("Domain.Infermierja", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
@@ -394,6 +394,17 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Laboranti", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
+
+                    b.Property<string>("Kualifikimi")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Laboranti_Kualifikimi");
+
+                    b.Property<string>("Specializimi")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Laboranti_Specializimi");
+
+                    b.Property<string>("laboratori")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Laboranti");
                 });
@@ -417,6 +428,25 @@ namespace Persistence.Migrations
                     b.HasBaseType("Domain.AppUser");
 
                     b.HasDiscriminator().HasValue("Terapisti");
+                });
+
+            modelBuilder.Entity("Domain.PacientiTermini", b =>
+                {
+                    b.HasOne("Domain.Pacienti", "Pacienti")
+                        .WithMany("Terminet")
+                        .HasForeignKey("PacientiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Termini", "Termini")
+                        .WithMany("Pacientet")
+                        .HasForeignKey("TerminiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pacienti");
+
+                    b.Navigation("Termini");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -468,6 +498,16 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Termini", b =>
+                {
+                    b.Navigation("Pacientet");
+                });
+
+            modelBuilder.Entity("Domain.Pacienti", b =>
+                {
+                    b.Navigation("Terminet");
                 });
 #pragma warning restore 612, 618
         }

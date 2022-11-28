@@ -14,7 +14,7 @@ namespace Application.Farmaci
     {
         public class Query : IRequest<Farmacisti>
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Farmacisti>

@@ -12,7 +12,7 @@ namespace Application.Doctor
     {
         public class Command: IRequest
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
 
         }
 

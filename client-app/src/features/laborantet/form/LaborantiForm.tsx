@@ -23,17 +23,29 @@ export default observer( function LaborantiForm (){
     const [laboranti, setLaboranti] = useState<Laboranti>({
         id: '',
         emri: '',
-        mbiemri: '',
+        mbiemri:'',
+        userName:'',
+        email:'',
+        password:'',
         datelindja: null,
-        email: '',
+        gjinia:'',
+        kualifikimi: '',
+        specializimi: '',
+        vendbanimi: '',
+        nrKontaktues: '',
         laboratori: '',
     });
 
     const validationSchema = Yup.object({
         emri: Yup.string().required('This field must need to be filled'),
         mbiemri: Yup.string().required('This field must need to be filled'),
+        userName: Yup.string().required('This field must need to be filled'),
+        email: Yup.string().required('This field must need to be filled').email(),
         datelindja: Yup.string().required('This field must need to be filled').nullable(),
-        email: Yup.string().required('This field must need to be filled'),
+        kualifikimi: Yup.string().required('This field must need to be filled'),
+        specializimi: Yup.string().required('This field must need to be filled'),
+        vendbanimi: Yup.string().required('This field must need to be filled'),
+        nrKontaktues: Yup.string().required('This field must need to be filled'),
         laboratori: Yup.string().required('This field must need to be filled'),
     })
 
@@ -68,6 +80,8 @@ export default observer( function LaborantiForm (){
                 {({handleSubmit, isValid, isSubmitting, dirty}) => (
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name ='emri' placeholder='Emri' /> 
+                    <MyTextInput name ='mbiemri' placeholder='Mbiemri' /> 
+                    <MyTextInput name ='userName' placeholder='Username' /> 
                     <MyDateInput
                         placeholderText='Datelindja'
                         name='datelindja'
@@ -77,6 +91,10 @@ export default observer( function LaborantiForm (){
                     />
                     <Header content='Personal details' sub color='teal' />
                     <MyTextInput placeholder='Email' name='email'/>
+                    <MyTextInput placeholder='Kualifikimi' name='kualifikimi'/>
+                    <MyTextInput placeholder='Specializimi' name='specializimi'/>
+                    <MyTextInput placeholder='Vendbanimi' name='vendbanimi'/>
+                    <MyTextInput placeholder='Nr Kontaktues' name='nrKontaktues'/>
                     <MyTextInput placeholder='Laboratori' name='laboratori'/>
                     <Button 
                         disabled ={isSubmitting || !dirty || !isValid}

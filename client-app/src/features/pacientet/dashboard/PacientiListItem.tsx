@@ -15,12 +15,12 @@ export default function pacientiListItem({pacienti}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='/assets/patient.png'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/pacientet/${pacienti.id}`}>
                                 {pacienti.emri}
                             </Item.Header>
-                            <Item.Description>Hosted by Altin</Item.Description>
+                            
                         </Item.Content>
                     </Item>
                 </Item.Group>

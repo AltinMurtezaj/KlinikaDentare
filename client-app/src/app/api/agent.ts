@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { Doktori } from "../models/doktori";
+import { Farmacisti } from "../models/farmacisti";
 import { Infermierja, InfermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
 import { Pacienti } from "../models/pacienti";

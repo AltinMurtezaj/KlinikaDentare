@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import PacientiDetailedInfo from "./PacientiDetailedInfo";
-import PacientiDetailedSidebar from "./PacientiDetailedSidebar";
 import PacientiDetailedHeader from "./PacientiDetaledHeader";
 
 export default observer(function PacientiDetails(){
@@ -27,7 +26,6 @@ export default observer(function PacientiDetails(){
           
         </Grid.Column>
         <Grid.Column width={6}>
-          <PacientiDetailedSidebar />
         </Grid.Column>
       </Grid>
     )
