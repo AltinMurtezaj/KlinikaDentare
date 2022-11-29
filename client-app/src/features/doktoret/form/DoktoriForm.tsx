@@ -35,7 +35,8 @@ export default observer( function DoktoriForm (){
         kualifikimi: '',
         specializimi: '',
         vendbanimi: '',
-        nrKontaktues: ''
+        nrKontaktues: '',
+        token:'',
     });
 
     const validationSchema = Yup.object({
@@ -78,12 +79,15 @@ export default observer( function DoktoriForm (){
                 {({handleSubmit, isValid, isSubmitting, dirty}) => (
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name ='emri' placeholder='Emri' /> 
+                    <MyTextInput name ='mbiemri' placeholder='Mbiemri' /> 
+                    <MyTextInput name ='email' placeholder='Email' /> 
+                    <MyTextInput name ='gjinia' placeholder='Gjinia' /> 
                     <MyDateInput
                         placeholderText='Datelindja'
                         name='datelindja'
                         showTimeSelect
                         timeCaption='time'
-                        dateFormat='MMMM d, yyyy h:mm aa'
+                        dateFormat='MMMM d, yyyy'
                     />
                     <Header content='Personal details' sub color='teal' />
                     <MyTextInput placeholder='Kualifikimi' name='kualifikimi'/>

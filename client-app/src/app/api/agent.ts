@@ -1,11 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
-import { Doktori } from "../models/doktori";
+import { Accountant } from "../models/accountant";
+import { Doktori, DoktoriFormValues } from "../models/doktori";
 import { Farmacisti } from "../models/farmacisti";
 import { Infermierja, InfermierjaFormValues } from "../models/infermierja";
 import { Laboranti } from "../models/laboranti";
-import { Pacienti } from "../models/pacienti";
+import { Pacienti, PacientiFormValues } from "../models/pacienti";
 import { Pastruesi } from "../models/pastruesi";
 import { Terapisti } from "../models/terapisti";
 import { Termini } from "../models/termini";
@@ -125,6 +126,12 @@ const Account = {
 const AccountInfermierja = {
     register : (user:InfermierjaFormValues)=> requests.post<InfermierjaFormValues>('InfermierjaAccount/register', user),
 }
+const AccountDoktori = {
+    register : (user:DoktoriFormValues)=> requests.post<DoktoriFormValues>('DoktoriAccount/register', user),
+}
+const AccountPacienti = {
+    register : (user:PacientiFormValues)=> requests.post<PacientiFormValues>('PacientiAccount/register', user),
+}
 
 const Terapistet = {
     list: () => requests.get<Terapisti[]>('Terapist'),
@@ -135,11 +142,11 @@ const Terapistet = {
 }
 
 const Accountants = {
-    list: () => requests.get<Pacienti[]>('Pacient'),
-    details: (id: string) => requests.get<Pacienti>(`Pacient/${id}`),
-    create: (pacienti: Pacienti) => axios.post<void>('Pacient', pacienti),
-    update: (pacienti: Pacienti) => axios.put<void>(`Pacient/${pacienti.id}`,pacienti),
-    delete: (id: string) => axios.delete<void>(`Pacient/${id}`)
+    list: () => requests.get<Accountant[]>('Accountant'),
+    details: (id: string) => requests.get<Accountant>(`Accountant/${id}`),
+    create: (accountant: Accountant) => axios.post<void>('Accountant', accountant),
+    update: (accountant: Accountant) => axios.put<void>(`Accountant/${accountant.id}`,accountant),
+    delete: (id: string) => axios.delete<void>(`Accountant/${id}`)
 }
 
 const Farmacistet = {
@@ -154,6 +161,8 @@ const Farmacistet = {
 
 
 const agent = {
+    AccountPacienti,
+    AccountDoktori,
     AccountInfermierja,
     Laborantet,
     Infermjeret,

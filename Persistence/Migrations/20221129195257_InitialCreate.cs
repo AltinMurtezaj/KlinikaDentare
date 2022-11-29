@@ -8,24 +8,6 @@ namespace Persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Accountants",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Emri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mbiemri = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Datelindja = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Adresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    phone = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Accountants", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -53,6 +35,8 @@ namespace Persistence.Migrations
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Doktori_Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Doktori_Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Infermierja_Kualifikimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Infermierja_Specializimi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     laboratori = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -302,9 +286,6 @@ namespace Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Accountants");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

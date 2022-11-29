@@ -5,15 +5,9 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Accountant
+    public class Accountant : AppUser
     {
-        public int Id {get;set;}
-        public string Emri {get;set;}
-        public string Mbiemri {get;set;}
-
-        public string Datelindja {get; set;}
-        public string Email {get;set;}
-        public string Adresa {get;set;}
-        public int phone {get;set;}
+        public string Kualifikimi { get; set; }
+        public string Specializimi { get; set; }
     }
 }

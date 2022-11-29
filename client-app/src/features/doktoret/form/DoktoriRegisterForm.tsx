@@ -1,4 +1,5 @@
 import { observer } from "mobx-react-lite";
+
 import { Button, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { Formik, Form, ErrorMessage } from "formik";
@@ -13,7 +14,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-export default observer( function InfermierjaRegisterForm (){
+export default observer( function DoktoriRegisterForm (){
     const {userStore} = useStore();
     const history = useHistory();
 
@@ -48,8 +49,8 @@ export default observer( function InfermierjaRegisterForm (){
         password: '',
         gjinia: '',
         error:null}}
-        onSubmit={(values,{setErrors})=>userStore.registerInfermierja(values).then(()=>{
-            history.push('/infermjeret');
+        onSubmit={(values,{setErrors})=>userStore.registerDoktori(values).then(()=>{
+            history.push('/doktoret');
         }).catch(
             error=>{setErrors({error});console.log(error);}
         )}
@@ -57,7 +58,7 @@ export default observer( function InfermierjaRegisterForm (){
 >
 {({handleSubmit,isSubmitting,errors,isValid,dirty})=>(
     <Form className="ui form error" onSubmit={handleSubmit} autoComplete='off'>
-        <Header as='h2' content='Register Nurse' color="teal" textAlign="center"/>
+        <Header as='h2' content='Register Doctor' color="teal" textAlign="center"/>
         <MyTextInput name="emri" placeholder="Emri"/>
         
         <MyTextInput name="mbiemri" placeholder="Mbiemri"/>

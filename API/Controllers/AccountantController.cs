@@ -24,7 +24,7 @@ namespace API.Controllers
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Accountant>> GetAccountant(int id)
+        public async Task<ActionResult<Accountant>> GetAccountant(string id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         }
@@ -38,14 +38,14 @@ namespace API.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> EditAccountant(int id, Accountant accountant)
+        public async Task<IActionResult> EditAccountant(string id, Accountant accountant)
         {
             accountant.Id = id;
             return Ok(await Mediator.Send(new Edit.Command{Accountant = accountant}));
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAccountant(int id)
+        public async Task<IActionResult> DeleteAccountant(string id)
         {
             return Ok(await Mediator.Send(new Delete.Command{Id = id}));
         }

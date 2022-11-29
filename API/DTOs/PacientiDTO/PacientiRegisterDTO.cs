@@ -8,7 +8,7 @@ namespace API.DTOs.PacientiDTO
 {
     public class PacientiRegisterDTO
     {
-         [Required]
+        [Required]
         public string Emri { get; set; }
         [Required]
         public string Mbiemri { get; set; }
@@ -28,10 +28,9 @@ namespace API.DTOs.PacientiDTO
         public string Gjinia { get; set; }
         [Required]
         public string Vendbanimi { get; set; }
-        [Required]
-        public string Kualifikimi { get; set; }
-        [Required]
-        public string Specializimi { get; set; }
+        public string Kualifikimi {get;set;}
+        public string Specializimi {get;set;}
+    
         
 
     }

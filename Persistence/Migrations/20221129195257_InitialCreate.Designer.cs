@@ -10,7 +10,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221128220535_InitialCreate")]
+    [Migration("20221129195257_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,36 +20,6 @@ namespace Persistence.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
-
-            modelBuilder.Entity("Domain.Accountant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Adresa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Datelindja")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Emri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mbiemri")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("phone")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Accountants");
-                });
 
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
@@ -356,7 +326,7 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.Doktori", b =>
+            modelBuilder.Entity("Domain.Accountant", b =>
                 {
                     b.HasBaseType("Domain.AppUser");
 
@@ -365,6 +335,21 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Specializimi")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Accountant");
+                });
+
+            modelBuilder.Entity("Domain.Doktori", b =>
+                {
+                    b.HasBaseType("Domain.AppUser");
+
+                    b.Property<string>("Kualifikimi")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Doktori_Kualifikimi");
+
+                    b.Property<string>("Specializimi")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Doktori_Specializimi");
 
                     b.HasDiscriminator().HasValue("Doktori");
                 });

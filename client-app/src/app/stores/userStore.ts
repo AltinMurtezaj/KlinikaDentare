@@ -1,7 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { history } from "../..";
 import agent from "../api/agent";
+import { DoktoriFormValues } from "../models/doktori";
 import { InfermierjaFormValues } from "../models/infermierja";
+import { PacientiFormValues } from "../models/pacienti";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
 
@@ -60,6 +62,26 @@ export default class userStore{
         try{
              await agent.AccountInfermierja.register(creds);
              history.push('/infermjeret');
+            
+            
+        }catch(error){
+            throw error;
+        }
+    }
+    registerDoktori = async (creds:DoktoriFormValues)=>{
+        try{
+             await agent.AccountDoktori.register(creds);
+             history.push('/doktoret');
+            
+            
+        }catch(error){
+            throw error;
+        }
+    }
+    registerPacienti = async (creds:PacientiFormValues)=>{
+        try{
+             await agent.AccountPacienti.register(creds);
+             history.push('/pacientet');
             
             
         }catch(error){

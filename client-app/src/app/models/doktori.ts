@@ -1,15 +1,12 @@
-export interface Doktori {
-    id: string;
-    emri: string;
-    datelindja: Date | null;
+import { User, UserFormValues } from "./user";
+
+export interface Doktori extends User {
     kualifikimi: string;
     specializimi: string;
-    vendbanimi: string;
-    nrKontaktues: string;
-    mbiemri: string,
-    userName: string,
-    email: string,
-    password: string,
-    gjinia: string
+    
+  }
+  export interface DoktoriFormValues extends UserFormValues{
+    kualifikimi?: string;
+    specializimi?: string;
   }
   

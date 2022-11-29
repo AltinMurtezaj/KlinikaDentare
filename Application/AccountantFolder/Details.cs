@@ -14,7 +14,7 @@ namespace Application.AccountantFolder
     {
         public class Query : IRequest<Accountant>
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Accountant>

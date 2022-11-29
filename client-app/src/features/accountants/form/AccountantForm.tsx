@@ -23,11 +23,17 @@ export default observer( function AccountantForm (){
     const [accountant, setAccountant] = useState<Accountant>({
         id: '',
         emri: '',
-        mbiemri: '',
+        mbiemri:'',
+        userName:'',
+        email:'',
+        password:'',
         datelindja: null,
-        gjinia: '',
+        gjinia:'',
+        kualifikimi: '',
+        specializimi: '',
         vendbanimi: '',
-        nrKontaktues: ''
+        nrKontaktues: '',
+        token:'',
     });
 
     const validationSchema = Yup.object({

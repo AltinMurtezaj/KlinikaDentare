@@ -39,7 +39,7 @@ namespace API.Controllers
             }
             if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.UserName))
             {
-                ModelState.AddModelError("userName", "Numri personal eshte gabim");
+                ModelState.AddModelError("userName", "Username eshte gabim");
                 return ValidationProblem(ModelState);
             }
             var user = new Pacienti

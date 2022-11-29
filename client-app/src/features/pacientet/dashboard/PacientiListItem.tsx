@@ -27,12 +27,9 @@ export default function pacientiListItem({pacienti}: Props){
             </Segment>
             <Segment>
                 <span>
-                    <Icon name ='time'/> {format (pacienti.datelindja!, 'dd MMM yyyy h:mm aa')}
+                    <Icon name ='time'/> {format (pacienti.datelindja!, 'dd MMM yyyy')}
                     <Icon name ='marker'/> {pacienti.gjinia}
                 </span>
-            </Segment>
-            <Segment secondary>
-                Attendees go here
             </Segment>
             <Segment clearing>
                 <span>{pacienti.vendbanimi}</span>

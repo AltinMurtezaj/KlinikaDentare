@@ -7,6 +7,6 @@ namespace API.DTOs.PacientiDTO
 {
     public class PacientiDTO : UserDto
     {
-        
+      
     }
 }

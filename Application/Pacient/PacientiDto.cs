@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Application.Nurse
+namespace Application.Pacient
 {
-    public class InfermierjaDto
+    public class PacientiDto
     {
         public string Id { get; set; }
         public string Emri { get; set; }
@@ -14,8 +14,6 @@ namespace Application.Nurse
         public string Gjinia { get; set; }
         public string Vendbanimi { get; set; }
         public string Username { get; set; }
-        public string Kualifikimi { get; set; }
-        public string Specializimi { get; set; }
         public string NrKontaktues { get; set; }
         public string Email { get; set; }
         public string Discriminator { get; set; }

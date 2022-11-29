@@ -37,6 +37,8 @@ import TerapistiDashboard from '../../features/terapistet/dashboard/TerapistiDas
 import TerapistiDetails from '../../features/terapistet/details/TerapistiDetails';
 import TerapistiForm from '../../features/terapistet/form/TerapistiForm';
 import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
+import DoktoriRegisterForm from '../../features/doktoret/form/DoktoriRegisterForm';
+import PacientiRegisterForm from '../../features/pacientet/form/PacientiRegisterForm';
 
 function App() {
   const location = useLocation();
@@ -70,11 +72,13 @@ function App() {
             
             <Route exact path='/doktoret' component={DoktoriDashboard}/>\
             <Route path='/doktoret/:id' component={DoktoriDetails}/>
-            <Route key={location.key}path={['/createDoktoret','/manageDoktori/:id']} component={DoktoriForm}/>
+            <Route key={location.key}path={['/manageDoktori/:id']} component={DoktoriForm}/>
+            <Route key={location.key}path={['/createDoktoret']} component={DoktoriRegisterForm}/>
 
             <Route exact path='/pacientet' component={PacientiDashboard}/>\
             <Route path='/pacientet/:id' component={PacientiDetails}/>
-            <Route key={location.key}path={['/createPacientet','/managePacienti/:id']} component={PacientiForm}/>
+            <Route key={location.key}path={['/managePacienti/:id']} component={PacientiForm}/>
+            <Route key={location.key}path={['/createPacientet']} component={PacientiRegisterForm }/>
             
             <Route exact path='/laborantet' component={LaborantiDashboard}/>\
             <Route path='/laborantet/:id' component={LaborantiDetails}/>
@@ -88,10 +92,6 @@ function App() {
             <Route exact path='/farmacistet' component={FarmacistiDashboard}/>
             <Route path='/farmacistet/:id' component={FarmacistiDetails}/>
             <Route key={location.key}path={['/createFarmacistet','/manage/:id']} component={farmacistiForm}/>
-
-            <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
-            <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
-            <Route key={location.key}path={['/createInfermjeret','/manage/:id']} component={InfermierjaForm}/>
 
             <Route exact path='/pastruset' component={PastruesiDashboard}/>
             <Route path='/pastruset/:id' component={PastruesiDetails}/>

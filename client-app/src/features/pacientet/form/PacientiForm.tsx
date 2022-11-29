@@ -24,11 +24,15 @@ export default observer( function PacientiForm (){
     const [pacienti, setPacienti] = useState<Pacienti>({
         id: '',
         emri: '',
-        mbiemri: '',
         datelindja: null,
-        gjinia: '',
         vendbanimi: '',
-        nrKontaktues: ''
+        nrKontaktues: '',
+        mbiemri: '',
+        userName: '',
+        email: '',
+        password: '',
+        gjinia: '',
+        token:''
     });
 
     const validationSchema = Yup.object({

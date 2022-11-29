@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Application.Nurse
+namespace Application.Doctor
 {
-    public class InfermierjaDto
+    public class DoktoriDto
     {
         public string Id { get; set; }
         public string Emri { get; set; }

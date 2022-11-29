@@ -1,9 +1,15 @@
 export interface Accountant {
-    id: string;
+  id: string;
     emri: string;
-    mbiemri: string;
     datelindja: Date | null;
-    gjinia: string;
     vendbanimi: string;
     nrKontaktues: string;
+    mbiemri: string,
+    userName: string,
+    email: string,
+    password: string,
+    gjinia: string
+    token:string | null;
+     kualifikimi: string;
+    specializimi: string;
   }

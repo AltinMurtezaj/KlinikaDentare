@@ -1,9 +1,8 @@
-export interface Pacienti {
-    id: string;
-    emri: string;
-    mbiemri: string;
-    datelindja: Date | null;
-    gjinia: string;
-    vendbanimi: string;
-    nrKontaktues: string;
+import { User, UserFormValues } from "./user";
+
+export interface Pacienti extends User {
+
+  }
+  export interface PacientiFormValues extends UserFormValues{
+
   }
