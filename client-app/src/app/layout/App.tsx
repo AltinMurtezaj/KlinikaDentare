@@ -36,9 +36,13 @@ import PastruesiForm from '../../features/pastruset/form/PastruesiForm';
 import TerapistiDashboard from '../../features/terapistet/dashboard/TerapistiDashboard';
 import TerapistiDetails from '../../features/terapistet/details/TerapistiDetails';
 import TerapistiForm from '../../features/terapistet/form/TerapistiForm';
+<<<<<<< HEAD
 import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
 import DoktoriRegisterForm from '../../features/doktoret/form/DoktoriRegisterForm';
 import PacientiRegisterForm from '../../features/pacientet/form/PacientiRegisterForm';
+=======
+import infermierjaRegisterForm from '../../features/infermjeret/form/infermierjaRegisterForm';
+>>>>>>> 17f5b369215813d8f2a325b4af26f7756f9fc81f
 
 function App() {
   const location = useLocation();
@@ -87,19 +91,19 @@ function App() {
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/manageInfermierja/:id']} component={InfermierjaForm}/>
-            <Route key={location.key}path={['/createInfermjeret']} component={InfermierjaRegisterForm}/>
+            <Route key={location.key}path={['/createInfermjeret']} component={infermierjaRegisterForm}/>
            
             <Route exact path='/farmacistet' component={FarmacistiDashboard}/>
             <Route path='/farmacistet/:id' component={FarmacistiDetails}/>
-            <Route key={location.key}path={['/createFarmacistet','/manage/:id']} component={farmacistiForm}/>
+            <Route key={location.key}path={['/createFarmacistet','/manageFarmacisti/:id']} component={farmacistiForm}/>
 
             <Route exact path='/pastruset' component={PastruesiDashboard}/>
             <Route path='/pastruset/:id' component={PastruesiDetails}/>
-            <Route key={location.key}path={['/createPastrueset','/manage/:id']} component={PastruesiForm}/>
+            <Route key={location.key}path={['/createPastrueset','/managePastruesi/:id']} component={PastruesiForm}/>
             
             <Route exact path='/terapistet' component={TerapistiDashboard}/>
             <Route path='/terapistet/:id' component={TerapistiDetails}/>
-            <Route key={location.key}path={['/createTherapist','/manage/:id']} component={TerapistiForm}/>
+            <Route key={location.key}path={['/createTherapist','/manageTerapisti/:id']} component={TerapistiForm}/>
 
             <Route path='/errors' component={TestErrors}/>
             <Route path='/server-error' component={ServerError}/>

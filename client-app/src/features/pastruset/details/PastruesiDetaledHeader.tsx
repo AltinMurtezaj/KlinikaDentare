@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Link } from 'react-router-dom';
-import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
+import {Button, Header, Item, Segment, Image} from 'semantic-ui-react';
 import {format} from 'date-fns';
+import { useStore } from '../../../app/stores/store';
 import { Pastruesi } from '../../../app/models/pastruesi';
 
 const pastruesiImageStyle = {
@@ -23,11 +24,19 @@ interface Props {
 }
 
 export default observer (function PastruesiDetailedHeader({pastruesi}: Props) {
+    const{pastruesiStore} = useStore();
+    const{deletePastruesi, loading} = pastruesiStore;
+    const[target, setTarget] =useState('');
+
+    function handlePastruesiDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+        setTarget(e.currentTarget.name);
+        deletePastruesi(id);
+      }
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/categoryImages/${pastruesi.emri}.jpg`} fluid style={pastruesiImageStyle}/>
-                <Segment style={pastruesiImageStyle} basic>
+                <Image src={`/assets/pastruesi.png`} fluid style={pastruesiImageStyle}/>
+                <Segment style={pastruesiImageTextStyle} basic>
                     <Item.Group>
                         <Item>
                             <Item.Content>
@@ -46,10 +55,13 @@ export default observer (function PastruesiDetailedHeader({pastruesi}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Purifier</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${pastruesi.id}`} color='orange' floated='right'>
-                    Manage Purifier
+                <Button name={pastruesi.id}
+                as={Link} to={'/farmacistet'}
+                loading={loading && target === pastruesi.id}
+                onClick={(e)=>handlePastruesiDelete(e, pastruesi.id)}
+                 color='red'>Delete Cleaner</Button>
+                <Button as={Link} to={`/managePastruesi/${pastruesi.id}`} color='blue' floated='right'>
+                    Edit Cleaner
                 </Button>
             </Segment>
         </Segment.Group>

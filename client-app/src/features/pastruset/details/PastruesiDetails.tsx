@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import PastruesiDetailedInfo from "./PastruesiDetailedInfo";
-import PastruesiDetailedSidebar from "./PastruesiDetailedSidebar";
 import PastruesiDetailedHeader from "./PastruesiDetaledHeader";
 
 export default observer(function PastruesiDetails(){
@@ -26,7 +25,6 @@ export default observer(function PastruesiDetails(){
           <PastruesiDetailedInfo pastruesi={pastruesi}/>
         </Grid.Column>
         <Grid.Column width={6}>
-          <PastruesiDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

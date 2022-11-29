@@ -1,15 +1,16 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Link } from 'react-router-dom';
-import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
+import {Button, Header, Item, Segment, Image} from 'semantic-ui-react';
 import {format} from 'date-fns';
+import { useStore } from '../../../app/stores/store';
 import { Farmacisti } from '../../../app/models/farmacisti';
 
-const pacientiImageStyle = {
+const farmacistiImageStyle = {
     filter: 'brightness(30%)'
 };
 
-const pacientiImageTextStyle = {
+const farmacistiImageTextStyle = {
     position: 'absolute',
     bottom: '5%',
     left: '5%',
@@ -23,11 +24,19 @@ interface Props {
 }
 
 export default observer (function FarmacistiDetailedHeader({farmacisti}: Props) {
+    const{farmacistiStore} = useStore();
+    const{deleteFarmacisti, loading, loadFarmacistet} = farmacistiStore;
+    const[target, setTarget] =useState('');
+
+    function handleFarmacistiDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+        setTarget(e.currentTarget.name);
+        deleteFarmacisti(id);
+      }
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/categoryImages/${farmacisti.emri}.jpg`} fluid style={pacientiImageStyle}/>
-                <Segment style={pacientiImageStyle} basic>
+                <Image src={`/assets/farmacisti.png`} fluid style={farmacistiImageStyle}/>
+                <Segment style={farmacistiImageTextStyle} basic>
                     <Item.Group>
                         <Item>
                             <Item.Content>
@@ -46,10 +55,13 @@ export default observer (function FarmacistiDetailedHeader({farmacisti}: Props) 
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Farmacisti</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${farmacisti.id}`} color='orange' floated='right'>
-                    Manage Pacienti
+                <Button name={farmacisti.id}
+                as={Link} to={'/farmacistet'}
+                loading={loading && target === farmacisti.id}
+                onClick={(e)=>handleFarmacistiDelete(e, farmacisti.id)}
+                 color='red'>Delete Farmacisti</Button>
+                <Button as={Link} to={`/manageFarmacisti/${farmacisti.id}`} color='blue' floated='right'>
+                    Edit Farmacisti
                 </Button>
             </Segment>
         </Segment.Group>
