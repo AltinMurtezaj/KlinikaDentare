@@ -15,12 +15,12 @@ export default function pastruesiListItem({pastruesi}: Props){
             <Segment>
                 <Item.Group>
                     <Item>
-                        <Item.Image size = 'tiny' circular src='/assets/user.png'/>
+                        <Item.Image size = 'tiny' circular src='/assets/pastruesi.png'/>
                         <Item.Content>
                             <Item.Header as ={Link} to={`/pastrueset/${pastruesi.id}`}>
                                 {pastruesi.emri}
                             </Item.Header>
-                            <Item.Description>Hosted by Altin</Item.Description>
+                            
                         </Item.Content>
                     </Item>
                 </Item.Group>

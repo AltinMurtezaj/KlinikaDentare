@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Link } from 'react-router-dom';
-import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
+import {Button, Header, Item, Segment, Image} from 'semantic-ui-react';
 import {format} from 'date-fns';
+import { useStore } from '../../../app/stores/store';
 import { Terapisti } from '../../../app/models/terapisti';
 
 const terapistiImageStyle = {
@@ -23,11 +24,19 @@ interface Props {
 }
 
 export default observer (function TerapistiDetailedHeader({terapisti}: Props) {
+    const{terapistiStore} = useStore();
+    const{deleteTerapisti, loading, loadTerapistet} = terapistiStore;
+    const[target, setTarget] =useState('');
+
+    function handleTerapistiDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+        setTarget(e.currentTarget.name);
+        deleteTerapisti(id);
+      }
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/categoryImages/${terapisti.emri}.jpg`} fluid style={terapistiImageStyle}/>
-                <Segment style={terapistiImageStyle} basic>
+                <Image src={`/assets/terapisti.png`} fluid style={terapistiImageStyle}/>
+                <Segment style={terapistiImageTextStyle} basic>
                     <Item.Group>
                         <Item>
                             <Item.Content>
@@ -46,10 +55,13 @@ export default observer (function TerapistiDetailedHeader({terapisti}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Therapist</Button>
-                <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${terapisti.id}`} color='orange' floated='right'>
-                    Manage Therapist
+                <Button name={terapisti.id}
+                as={Link} to={'/terapistet'}
+                loading={loading && target === terapisti.id}
+                onClick={(e)=>handleTerapistiDelete(e, terapisti.id)}
+                 color='red'>Delete Terapisti</Button>
+                <Button as={Link} to={`/manageTerapisti/${terapisti.id}`} color='blue' floated='right'>
+                    Edit Terapisti
                 </Button>
             </Segment>
         </Segment.Group>

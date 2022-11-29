@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponents";
 import { useStore } from "../../../app/stores/store";
 import FarmacistiDetailedInfo from "./FarmacistiDetailedInfo";
-import FarmacistiDetailedSidebar from "./FarmacistiDetailedSidebar";
 import FarmacistiDetaledHeader from "./FarmacistiDetaledHeader";
 
 export default observer(function FarmacistiDetails(){
@@ -24,10 +23,8 @@ export default observer(function FarmacistiDetails(){
         <Grid.Column width={10}>
           <FarmacistiDetaledHeader farmacisti={farmacisti}/>
           <FarmacistiDetailedInfo farmacisti={farmacisti}/>
-          
         </Grid.Column>
         <Grid.Column width={6}>
-          <FarmacistiDetailedSidebar />
         </Grid.Column>
       </Grid>
     )

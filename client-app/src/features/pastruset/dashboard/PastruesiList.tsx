@@ -1,13 +1,12 @@
 import { observer } from "mobx-react-lite";
 import React, { Fragment } from "react";
 import { Header} from "semantic-ui-react";
-import PastruesiStore from "../../../app/stores/pastruesiStore";
 import { useStore } from "../../../app/stores/store";
 import PastruesiListItem from "./PastruesiListItem";
 
 
 
-export default observer(function PastruesiList(){
+export default observer(function PacientiList(){
     const {pastruesiStore} = useStore();
     const {grouperPastrueset} = pastruesiStore;
 
