@@ -13,7 +13,5 @@ namespace Domain
         public string Gjinia { get; set; }
         public string Vendbanimi { get; set; }
         public string Discriminator {get; set;}
-        
     }
-
 }

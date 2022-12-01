@@ -36,13 +36,10 @@ import PastruesiForm from '../../features/pastruset/form/PastruesiForm';
 import TerapistiDashboard from '../../features/terapistet/dashboard/TerapistiDashboard';
 import TerapistiDetails from '../../features/terapistet/details/TerapistiDetails';
 import TerapistiForm from '../../features/terapistet/form/TerapistiForm';
-<<<<<<< HEAD
 import InfermierjaRegisterForm from '../../features/infermjeret/form/InfermierjaRegisterForm';
 import DoktoriRegisterForm from '../../features/doktoret/form/DoktoriRegisterForm';
 import PacientiRegisterForm from '../../features/pacientet/form/PacientiRegisterForm';
-=======
-import infermierjaRegisterForm from '../../features/infermjeret/form/infermierjaRegisterForm';
->>>>>>> 17f5b369215813d8f2a325b4af26f7756f9fc81f
+
 
 function App() {
   const location = useLocation();
@@ -91,7 +88,7 @@ function App() {
             <Route exact path='/infermjeret' component={InfermierjaDashboard}/>
             <Route path='/infermjeret/:id' component={InfermierjaDetails}/>
             <Route key={location.key}path={['/manageInfermierja/:id']} component={InfermierjaForm}/>
-            <Route key={location.key}path={['/createInfermjeret']} component={infermierjaRegisterForm}/>
+            <Route key={location.key}path={['/createInfermjeret']} component={InfermierjaRegisterForm}/>
            
             <Route exact path='/farmacistet' component={FarmacistiDashboard}/>
             <Route path='/farmacistet/:id' component={FarmacistiDetails}/>

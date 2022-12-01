@@ -63,7 +63,7 @@ export default observer( function PacientiRegisterForm (){
         <MyDateInput 
                   placeholderText='Ditelindja' 
                   name='datelindja'
-                  dateFormat='d MMMM yyyy'
+                  dateFormat='dd MM yyyy'
              />
         <MyTextInput placeholder='nrKontaktues' name='nrKontaktues'/>
         <MyTextInput name="email" placeholder="Emaili"/>

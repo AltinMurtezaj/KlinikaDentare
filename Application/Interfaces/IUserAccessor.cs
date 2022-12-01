@@ -1,14 +1,12 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
-namespace Domain
+namespace Application.Interfaces
 {
-    public class Pacienti : AppUser
+    public interface IUserAccessor
     {
-      
+        string GetUsername();
     }
 }

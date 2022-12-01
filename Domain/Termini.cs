@@ -12,6 +12,6 @@ namespace Domain
         public string Orari {get;set;}
         public DateTime Data {get;set;}
         public string Pershkrimi {get; set;} 
-        public ICollection<PacientiTermini> Pacientet { get; set; }= new List<PacientiTermini>();
+       
     }
 }
